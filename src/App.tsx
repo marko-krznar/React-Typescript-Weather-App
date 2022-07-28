@@ -105,9 +105,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="font-bold leading-tight text-5xl mt-12 mb-12 text-center">
-          Weather app
+        <h1 className="font-bold leading-tight text-5xl mt-12 text-center">
+          Weather
         </h1>
+        <h2 className="font-bold leading-tight text-lg mt-2 mb-12 text-center">
+          City: Zagreb
+        </h2>
       </header>
 
       <div className="max-w-2xl px-8 py-4 mx-auto mb-12 bg-white rounded-lg shadow-md">
