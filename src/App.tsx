@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { BsCloudSun } from "react-icons/bs";
+import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
+import { WiHumidity } from "react-icons/wi";
 
 interface ILocation {
   locations: [
@@ -105,28 +108,38 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="font-bold leading-tight text-5xl mt-12 text-center">
-          Weather
+        <h1 className="font-bold leading-tight text-5xl mt-12 mb-12 text-center">
+          Current Weather
         </h1>
-        <h2 className="font-bold leading-tight text-lg mt-2 mb-12 text-center">
-          City: Zagreb
-        </h2>
       </header>
 
-      <div className="max-w-2xl px-8 py-4 mx-auto mb-12 bg-white rounded-lg shadow-md">
-        Current Weather Data
-        <h2 className="text-2xl font-bold">
-          {location.locations[0].name}, {location.locations[0].country}
-        </h2>
-        <p>Temp: {weatherInfo.weather.main.temp}</p>
-        <p>Feels like: {weatherInfo.weather.main.feels_like}</p>
-        <p>Min temp: {weatherInfo.weather.main.temp_min}</p>
-        <p>Max temp: {weatherInfo.weather.main.temp_max}</p>
-        <p>Pressure: {weatherInfo.weather.main.pressure}</p>
-        <p>Humidity: {weatherInfo.weather.main.humidity}</p>
+      <div className="max-w-2xl px-8 py-4 mx-auto mb-12 bg-white/[.2] rounded-lg shadow-md">
+        <div className="flex justify-center items-center">
+          <BsCloudSun className="text-9xl px-4" />
+          <div className="px-4">
+            <p className="text-4xl">{weatherInfo.weather.main.temp}° C</p>
+            <h2 className="text-base">
+              {location.locations[0].name}, {location.locations[0].country}
+            </h2>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <div className="flex align-center flex-col px-4">
+            <div className="text-center text-2xl">
+              <FaTemperatureHigh className="inline" />
+            </div>
+            <p>{weatherInfo.weather.main.temp_min}° C</p>
+          </div>
+          <div className="flex align-center flex-col px-4">
+            <div className="text-center text-2xl">
+              <FaTemperatureLow className="inline" />
+            </div>
+            <p>{weatherInfo.weather.main.temp_max}° C</p>
+          </div>
+        </div>
       </div>
 
-      <div className="p-6">
+      {/* <div className="p-6">
         <h2 className="text-2xl font-bold mb-6">5 day weather forecast</h2>
         <ul className="flex flex-wrap">
           {fiveDayWeatherInfo.fiveDayWeather.map((item, i) => {
@@ -142,7 +155,7 @@ function App() {
             );
           })}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
