@@ -1,0 +1,5 @@
+html {
+  font-family: "Quicksand", sans-serif;
+  background: url("./img/sea.webp") no-repeat center center/cover;
+  min-height: 100vh;
+}
