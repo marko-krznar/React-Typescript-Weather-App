@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/main.658d07c5.css","mappings":"AAAA,KAEE,oGAA+D,CAD/D,gCAAoC,CAEpC,gBACF","sources":["App.css"],"sourcesContent":["html {\n  font-family: \"Quicksand\", sans-serif;\n  background: url(\"./img/sea.webp\") no-repeat center center/cover;\n  min-height: 100vh;\n}\n"],"names":[],"sourceRoot":""}
