@@ -163,9 +163,8 @@ function App() {
               <BsSunrise className="inline" />
             </div>
             <p className="font-bold">
-              {new Date(
-                weatherInfo.weather.sys.sunrise * 1000
-              ).toLocaleTimeString()}
+              {new Date(weatherInfo.weather.sys.sunrise * 1000).getHours()}:
+              {new Date(weatherInfo.weather.sys.sunrise * 1000).getMinutes()}
             </p>
           </div>
           <div className="flex align-center flex-col px-4">
@@ -193,9 +192,8 @@ function App() {
               <BsSunset className="inline" />
             </div>
             <p className="font-bold">
-              {new Date(
-                weatherInfo.weather.sys.sunset * 1000
-              ).toLocaleTimeString()}
+              {new Date(weatherInfo.weather.sys.sunset * 1000).getHours()}:
+              {new Date(weatherInfo.weather.sys.sunset * 1000).getMinutes()}
             </p>
           </div>
         </div>
