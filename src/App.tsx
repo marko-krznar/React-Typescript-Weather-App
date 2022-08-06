@@ -140,25 +140,26 @@ function App() {
           Current Weather
         </h1>
       </header>
-
       <div className="max-w-2xl px-8 py-4 mx-auto mb-12 bg-white/[.2] rounded-lg shadow-md backdrop-blur-lg text-white">
-        <div className="flex justify-center items-center pt-6">
-          <img
-            src={`https://openweathermap.org/img/wn/${weatherInfo?.weather?.weather[0]?.icon}@4x.png`}
-            alt={`${weatherInfo.weather.weather[0].description}`}
-          />
-          <div className="px-4">
+        <div className="flex justify-center items-center pt-6 flex-col sm:flex-row">
+          <div>
+            <img
+              src={`https://openweathermap.org/img/wn/${weatherInfo?.weather?.weather[0]?.icon}@4x.png`}
+              alt={`${weatherInfo.weather.weather[0].description}`}
+            />
+          </div>
+          <div className="px-4 mb-8 sm:mb-0">
             <p className="text-5xl font-bold">
               {weatherInfo.weather.main.temp}° C
             </p>
-            <h2 className="text-base flex items-center mt-2">
+            <h2 className="text-base flex justify-center mt-2 sm:justify-start">
               <IoLocationOutline className="mr-2" />
               {location.locations[0].name}, {location.locations[0].country}
             </h2>
           </div>
         </div>
-        <div className="flex justify-center pb-4">
-          <div className="flex align-center flex-col px-4">
+        <div className="flex justify-center pb-4 flex-wrap">
+          <div className="flex align-center flex-col p-4">
             <div className="text-center text-2xl">
               <BsSunrise className="inline" />
             </div>
@@ -167,13 +168,13 @@ function App() {
               {new Date(weatherInfo.weather.sys.sunrise * 1000).getMinutes()}
             </p>
           </div>
-          <div className="flex align-center flex-col px-4">
+          <div className="flex align-center flex-col p-4">
             <div className="text-center text-2xl">
               <FaTemperatureHigh className="inline" />
             </div>
             <p className="font-bold">{weatherInfo.weather.main.temp_min}° C</p>
           </div>
-          <div className="flex align-center flex-col px-4">
+          <div className="flex align-center flex-col p-4">
             <div className="text-center text-2xl">
               <BsWind className="inline" />
             </div>
@@ -181,13 +182,13 @@ function App() {
               {(weatherInfo.weather.wind.speed * 3.6).toFixed(2)} km/h
             </p>
           </div>
-          <div className="flex align-center flex-col px-4">
+          <div className="flex align-center flex-col p-4">
             <div className="text-center text-2xl">
               <FaTemperatureLow className="inline" />
             </div>
             <p className="font-bold">{weatherInfo.weather.main.temp_max}° C</p>
           </div>
-          <div className="flex align-center flex-col px-4">
+          <div className="flex align-center flex-col p-4">
             <div className="text-center text-2xl">
               <BsSunset className="inline" />
             </div>
@@ -198,7 +199,6 @@ function App() {
           </div>
         </div>
       </div>
-
       {/* <div className="p-6">
         <h2 className="text-2xl font-bold mb-6">5 day weather forecast</h2>
         <ul className="flex flex-wrap">
