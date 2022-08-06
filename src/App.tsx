@@ -1,7 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { BsSunset, BsSunrise, BsWind } from "react-icons/bs";
+import {
+  BsSunset,
+  BsSunrise,
+  BsWind,
+  BsFillSunFill,
+  BsFillMoonStarsFill,
+} from "react-icons/bs";
 import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 
@@ -18,6 +24,7 @@ interface IWeather {
   weather: {
     weather: [
       {
+        id: number;
         main: string;
         description: string;
         icon: string;
@@ -73,6 +80,7 @@ function App() {
     weather: {
       weather: [
         {
+          id: 0,
           main: "",
           description: "",
           icon: "",
@@ -133,6 +141,23 @@ function App() {
       });
   }, []);
 
+  const renderIcon = (iconCode: string) => {
+    if (iconCode === "01d") {
+      return <BsFillSunFill className="text-8xl m-8" />;
+    }
+
+    if (iconCode === "01n") {
+      return <BsFillMoonStarsFill className="text-8xl m-8" />;
+    }
+
+    return (
+      <img
+        src={`https://openweathermap.org/img/wn/${iconCode}@4x.png`}
+        alt={`${weatherInfo.weather.weather[0].description}`}
+      />
+    );
+  };
+
   return (
     <div className="App px-4">
       <header className="App-header">
@@ -142,12 +167,7 @@ function App() {
       </header>
       <div className="max-w-2xl px-8 py-4 mx-auto mb-12 bg-white/[.2] rounded-lg shadow-md backdrop-blur-lg text-white">
         <div className="flex justify-center items-center pt-6 flex-col sm:flex-row">
-          <div>
-            <img
-              src={`https://openweathermap.org/img/wn/${weatherInfo?.weather?.weather[0]?.icon}@4x.png`}
-              alt={`${weatherInfo.weather.weather[0].description}`}
-            />
-          </div>
+          <div>{renderIcon(weatherInfo?.weather?.weather[0]?.icon)}</div>
           <div className="px-4 mb-8 sm:mb-0">
             <p className="text-5xl font-bold">
               {weatherInfo.weather.main.temp}° C
