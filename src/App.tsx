@@ -172,47 +172,51 @@ function App() {
             <p className="text-5xl font-bold">
               {weatherInfo.weather.main.temp}° C
             </p>
-            <h2 className="text-base flex justify-center mt-2 sm:justify-start">
-              <IoLocationOutline className="mr-2" />
+            <h2 className="text-base flex justify-center items-center mt-2 sm:justify-start">
+              <IoLocationOutline className="mr-2 text-2xl" />
               {location.locations[0].name}, {location.locations[0].country}
             </h2>
           </div>
         </div>
         <div className="flex justify-center pb-4 flex-wrap">
-          <div className="flex align-center flex-col p-4">
+          <div className="flex align-center flex-col p-4 grow max-w-[50%]">
             <div className="text-center text-2xl">
-              <BsSunrise className="inline" />
+              <BsSunrise className="inline text-5xl" />
             </div>
-            <p className="font-bold">
+            <p className="font-bold text-center mt-2">
               {new Date(weatherInfo.weather.sys.sunrise * 1000).getHours()}:
               {new Date(weatherInfo.weather.sys.sunrise * 1000).getMinutes()}
             </p>
           </div>
-          <div className="flex align-center flex-col p-4">
+          <div className="flex align-center flex-col p-4 grow max-w-[50%]">
             <div className="text-center text-2xl">
-              <FaTemperatureHigh className="inline" />
+              <FaTemperatureHigh className="inline text-5xl" />
             </div>
-            <p className="font-bold">{weatherInfo.weather.main.temp_min}° C</p>
+            <p className="font-bold text-center mt-2">
+              {weatherInfo.weather.main.temp_min}° C
+            </p>
           </div>
-          <div className="flex align-center flex-col p-4">
+          <div className="flex align-center flex-col p-4 grow max-w-[50%]">
             <div className="text-center text-2xl">
-              <BsWind className="inline" />
+              <BsWind className="inline text-5xl" />
             </div>
-            <p className="font-bold">
+            <p className="font-bold text-center mt-2">
               {(weatherInfo.weather.wind.speed * 3.6).toFixed(2)} km/h
             </p>
           </div>
-          <div className="flex align-center flex-col p-4">
+          <div className="flex align-center flex-col p-4 grow max-w-[50%]">
             <div className="text-center text-2xl">
-              <FaTemperatureLow className="inline" />
+              <FaTemperatureLow className="inline text-5xl" />
             </div>
-            <p className="font-bold">{weatherInfo.weather.main.temp_max}° C</p>
+            <p className="font-bold text-center mt-2">
+              {weatherInfo.weather.main.temp_max}° C
+            </p>
           </div>
-          <div className="flex align-center flex-col p-4">
+          <div className="flex align-center flex-col p-4 grow max-w-[50%]">
             <div className="text-center text-2xl">
-              <BsSunset className="inline" />
+              <BsSunset className="inline text-5xl" />
             </div>
-            <p className="font-bold">
+            <p className="font-bold text-center mt-2">
               {new Date(weatherInfo.weather.sys.sunset * 1000).getHours()}:
               {new Date(weatherInfo.weather.sys.sunset * 1000).getMinutes()}
             </p>
