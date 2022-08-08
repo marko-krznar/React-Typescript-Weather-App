@@ -53,10 +53,14 @@ interface IFiveDayWeather {
   fiveDayWeather: [
     {
       dt_txt: string;
+      main: {
+        temp: number;
+      };
       weather: [
         {
           main: string;
           description: string;
+          icon: string;
         }
       ];
     }
@@ -110,10 +114,14 @@ function App() {
       fiveDayWeather: [
         {
           dt_txt: "",
+          main: {
+            temp: 0,
+          },
           weather: [
             {
               main: "",
               description: "",
+              icon: "",
             },
           ],
         },
@@ -135,24 +143,26 @@ function App() {
         setWeatherInfo({ weather: res.data });
       });
     axios
-      .get(`${url}data/2.5/forecast?q=Zagreb&units=metric&appid=${apiKey}`)
+      .get(
+        `${url}data/2.5/forecast?q=Zagreb&units=metric&lang=hr&appid=${apiKey}`
+      )
       .then((res) => {
         setFiveDayWeatherInfo({ fiveDayWeather: res.data.list });
       });
   }, []);
 
-  const renderIcon = (iconCode: string) => {
+  const renderIcon = (iconCode: string, iconSize: number, iconFont: string) => {
     if (iconCode === "01d") {
-      return <BsFillSunFill className="text-8xl m-8" />;
+      return <BsFillSunFill className={iconFont} />;
     }
 
     if (iconCode === "01n") {
-      return <BsFillMoonStarsFill className="text-8xl m-8" />;
+      return <BsFillMoonStarsFill className={iconFont} />;
     }
 
     return (
       <img
-        src={`https://openweathermap.org/img/wn/${iconCode}@4x.png`}
+        src={`https://openweathermap.org/img/wn/${iconCode}@${iconSize}x.png`}
         alt={`${weatherInfo.weather.weather[0].description}`}
       />
     );
@@ -160,17 +170,14 @@ function App() {
 
   return (
     <div className="App px-4">
-      <header className="App-header">
-        <h1 className="font-bold leading-tight text-5xl mt-12 mb-12 text-center text-white">
-          Current Weather
-        </h1>
-      </header>
-      <div className="max-w-2xl px-8 py-4 mx-auto mb-12 bg-white/[.2] rounded-lg shadow-md backdrop-blur-lg text-white">
+      <section className="max-w-2xl px-8 py-4 mx-auto mb-12 mt-12 bg-white/[.2] rounded-lg shadow-md backdrop-blur-lg text-white">
         <div className="flex justify-center items-center pt-6 flex-col sm:flex-row">
-          <div>{renderIcon(weatherInfo?.weather?.weather[0]?.icon)}</div>
+          <div className="m-8">
+            {renderIcon(weatherInfo?.weather?.weather[0]?.icon, 4, "text-8xl")}
+          </div>
           <div className="px-4 mb-8 sm:mb-0">
             <p className="text-5xl font-bold">
-              {weatherInfo.weather.main.temp}° C
+              {Math.round(weatherInfo.weather.main.temp)}° C
             </p>
             <h2 className="text-base flex justify-center items-center mt-2 sm:justify-start">
               <IoLocationOutline className="mr-2 text-2xl" />
@@ -193,7 +200,7 @@ function App() {
               <FaTemperatureHigh className="inline text-5xl" />
             </div>
             <p className="font-bold text-center mt-2">
-              {weatherInfo.weather.main.temp_min}° C
+              {Math.round(weatherInfo.weather.main.temp_min)}° C
             </p>
           </div>
           <div className="flex align-center flex-col p-4 grow max-w-[50%]">
@@ -209,7 +216,7 @@ function App() {
               <FaTemperatureLow className="inline text-5xl" />
             </div>
             <p className="font-bold text-center mt-2">
-              {weatherInfo.weather.main.temp_max}° C
+              {Math.round(weatherInfo.weather.main.temp_max)}° C
             </p>
           </div>
           <div className="flex align-center flex-col p-4 grow max-w-[50%]">
@@ -222,24 +229,26 @@ function App() {
             </p>
           </div>
         </div>
-      </div>
-      {/* <div className="p-6">
-        <h2 className="text-2xl font-bold mb-6">5 day weather forecast</h2>
-        <ul className="flex flex-wrap">
+      </section>
+      <section className="py-6 px-12">
+        <ul className="flex overflow-x-scroll">
           {fiveDayWeatherInfo.fiveDayWeather.map((item, i) => {
             return (
               <li
-                className="max-w-xs px-8 py-4 mx-auto bg-white rounded-lg shadow-md my-2 flex-auto"
+                className="max-w-xs px-8 py-4 mx-auto bg-white/[.2] rounded-lg shadow-md my-2 flex-auto backdrop-blur-lg min-w-max text-white mr-2"
                 key={i}
               >
+                <div className="m-8 flex justify-center items-center w-24 h-24">
+                  {renderIcon(item.weather[0].icon, 2, "text-5xl")}
+                </div>
                 <span className="block">{item.dt_txt}</span>
-                <span className="block">{item.weather[0].main}</span>
+                <span className="block">{Math.round(item.main.temp)}° C</span>
                 <span className="block">{item.weather[0].description}</span>
               </li>
             );
           })}
         </ul>
-      </div> */}
+      </section>
     </div>
   );
 }
