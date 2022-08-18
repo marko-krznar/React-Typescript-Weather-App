@@ -94,7 +94,7 @@ const ForecastWeather = () => {
     };
 
     return (
-        <div className="App px-4">
+        <div className="App">
             <section className="py-6">
                 {fiveDayWeatherInfo.errorMsg ? (
                     <div className="m-auto text-white">
@@ -112,7 +112,7 @@ const ForecastWeather = () => {
                         {fiveDayWeatherInfo.fiveDayWeather.map((item, i) => {
                             return (
                                 <li
-                                    className="max-w-xs px-8 py-4 mx-auto bg-white/[.2] rounded-lg shadow-md my-2 flex-auto backdrop-blur-lg min-w-max text-white mr-2"
+                                    className="max-w-xs px-8 py-4 mx-auto bg-white/[.2] rounded-lg shadow-md my-2 flex-auto backdrop-blur-lg min-w-max text-white mr-2 last-of-type:mr-0"
                                     key={i}
                                 >
                                     <span className="block text-2xl text-center my-4 font-bold">
