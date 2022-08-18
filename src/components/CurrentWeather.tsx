@@ -149,7 +149,7 @@ const CurrentWeather = () => {
                         </div>
                     </div>
                     <div className="flex justify-center pb-4 flex-wrap">
-                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto sm:max-w-fit md:mx-6">
                             <div className="text-center text-2xl">
                                 <BsSunrise className="inline text-5xl" />
                             </div>
@@ -164,7 +164,7 @@ const CurrentWeather = () => {
                                 )}
                             </p>
                         </div>
-                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto sm:max-w-fit md:mx-6">
                             <div className="text-center text-2xl">
                                 <FaTemperatureHigh className="inline text-5xl" />
                             </div>
@@ -173,7 +173,7 @@ const CurrentWeather = () => {
                                 C
                             </p>
                         </div>
-                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto sm:max-w-fit md:mx-6">
                             <div className="text-center text-2xl">
                                 <BsWind className="inline text-5xl" />
                             </div>
@@ -184,7 +184,7 @@ const CurrentWeather = () => {
                                 km/h
                             </p>
                         </div>
-                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto sm:max-w-fit md:mx-6">
                             <div className="text-center text-2xl">
                                 <FaTemperatureLow className="inline text-5xl" />
                             </div>
@@ -193,7 +193,7 @@ const CurrentWeather = () => {
                                 C
                             </p>
                         </div>
-                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto sm:max-w-fit md:mx-6">
                             <div className="text-center text-2xl">
                                 <BsSunset className="inline text-5xl" />
                             </div>
