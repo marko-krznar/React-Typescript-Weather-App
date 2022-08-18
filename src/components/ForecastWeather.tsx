@@ -5,6 +5,7 @@ import {
     BsFillMoonStarsFill,
     BsEmojiFrown,
 } from "react-icons/bs";
+import { fromUnixTime, format } from "date-fns";
 
 interface IFiveDayWeather {
     fiveDayWeather: [
@@ -123,15 +124,20 @@ const ForecastWeather = () => {
                                             "text-5xl"
                                         )}
                                     </div>
-                                    <span className="block text-center">
-                                        {item.dt_txt.slice(8, 10)}.
-                                        {item.dt_txt.slice(5, 7)}.
-                                        {item.dt_txt.slice(0, 4)}.
-                                    </span>
-                                    <span className="block text-center">
-                                        {item.dt_txt.slice(11, 13)}:
-                                        {item.dt_txt.slice(14, 16)}
-                                    </span>
+                                    <p>
+                                        <span className="block text-center">
+                                            {format(
+                                                new Date(fromUnixTime(item.dt)),
+                                                "dd.MM.yyyy"
+                                            )}
+                                        </span>
+                                        <span className="block text-center">
+                                            {format(
+                                                new Date(fromUnixTime(item.dt)),
+                                                "HH:mm"
+                                            )}
+                                        </span>
+                                    </p>
                                     <span className="block uppercase text-center my-4">
                                         {item.weather[0].description}
                                     </span>
