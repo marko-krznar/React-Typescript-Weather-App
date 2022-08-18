@@ -124,7 +124,7 @@ const ForecastWeather = () => {
                                             "text-5xl"
                                         )}
                                     </div>
-                                    <p>
+                                    <p className="opacity-80">
                                         <span className="block text-center">
                                             {format(
                                                 new Date(fromUnixTime(item.dt)),
@@ -138,7 +138,7 @@ const ForecastWeather = () => {
                                             )}
                                         </span>
                                     </p>
-                                    <span className="block uppercase text-center my-4">
+                                    <span className="block uppercase text-center my-4 bg-white text-gray-800 text-xs font-semibold mr-2 px-2.5 py-1.5 rounded">
                                         {item.weather[0].description}
                                     </span>
                                 </li>

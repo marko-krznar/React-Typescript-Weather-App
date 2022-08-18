@@ -142,9 +142,9 @@ const CurrentWeather = () => {
                             </p>
                             <h2 className="text-base flex justify-center items-center mt-2 sm:justify-start">
                                 <IoLocationOutline className="mr-2 text-2xl" />
-                                {/* {location.locations[0].name},{" "}
-                        {location.locations[0].country} */}
-                                Zagreb, Hrvatska
+                                <span className="opacity-80">
+                                    Zagreb, Hrvatska
+                                </span>
                             </h2>
                         </div>
                     </div>
@@ -153,7 +153,7 @@ const CurrentWeather = () => {
                             <div className="text-center text-2xl">
                                 <BsSunrise className="inline text-5xl" />
                             </div>
-                            <p className="font-bold text-center mt-2">
+                            <p className="text-center mt-2 opacity-80">
                                 {format(
                                     new Date(
                                         fromUnixTime(
@@ -168,7 +168,7 @@ const CurrentWeather = () => {
                             <div className="text-center text-2xl">
                                 <FaTemperatureHigh className="inline text-5xl" />
                             </div>
-                            <p className="font-bold text-center mt-2">
+                            <p className="text-center mt-2 opacity-80">
                                 {Math.round(weatherInfo.weather.main.temp_min)}°
                                 C
                             </p>
@@ -177,7 +177,7 @@ const CurrentWeather = () => {
                             <div className="text-center text-2xl">
                                 <BsWind className="inline text-5xl" />
                             </div>
-                            <p className="font-bold text-center mt-2">
+                            <p className="text-center mt-2 opacity-80">
                                 {(weatherInfo.weather.wind.speed * 3.6).toFixed(
                                     2
                                 )}{" "}
@@ -188,7 +188,7 @@ const CurrentWeather = () => {
                             <div className="text-center text-2xl">
                                 <FaTemperatureLow className="inline text-5xl" />
                             </div>
-                            <p className="font-bold text-center mt-2">
+                            <p className="text-center mt-2 opacity-80">
                                 {Math.round(weatherInfo.weather.main.temp_max)}°
                                 C
                             </p>
@@ -197,7 +197,7 @@ const CurrentWeather = () => {
                             <div className="text-center text-2xl">
                                 <BsSunset className="inline text-5xl" />
                             </div>
-                            <p className="font-bold text-center mt-2">
+                            <p className="text-center mt-2 opacity-80">
                                 {format(
                                     new Date(
                                         fromUnixTime(
