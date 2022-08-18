@@ -10,6 +10,7 @@ import {
 } from "react-icons/bs";
 import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
+import { fromUnixTime, format } from "date-fns";
 
 interface ICurrentWeather {
     weather: {
@@ -153,13 +154,14 @@ const CurrentWeather = () => {
                                 <BsSunrise className="inline text-5xl" />
                             </div>
                             <p className="font-bold text-center mt-2">
-                                {new Date(
-                                    weatherInfo.weather.sys.sunrise * 1000
-                                ).getHours()}
-                                :
-                                {new Date(
-                                    weatherInfo.weather.sys.sunrise * 1000
-                                ).getMinutes()}
+                                {format(
+                                    new Date(
+                                        fromUnixTime(
+                                            weatherInfo.weather.sys.sunrise
+                                        )
+                                    ),
+                                    "HH:mm"
+                                )}
                             </p>
                         </div>
                         <div className="flex align-center flex-col p-4 grow max-w-[50%]">
@@ -196,13 +198,14 @@ const CurrentWeather = () => {
                                 <BsSunset className="inline text-5xl" />
                             </div>
                             <p className="font-bold text-center mt-2">
-                                {new Date(
-                                    weatherInfo.weather.sys.sunset * 1000
-                                ).getHours()}
-                                :
-                                {new Date(
-                                    weatherInfo.weather.sys.sunset * 1000
-                                ).getMinutes()}
+                                {format(
+                                    new Date(
+                                        fromUnixTime(
+                                            weatherInfo.weather.sys.sunset
+                                        )
+                                    ),
+                                    "HH:mm"
+                                )}
                             </p>
                         </div>
                     </div>

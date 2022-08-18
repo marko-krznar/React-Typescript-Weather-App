@@ -70,8 +70,6 @@ const ForecastWeather = () => {
             });
     }, []);
 
-    console.log(fiveDayWeatherInfo.errorMsg);
-
     const renderIcon = (
         iconCode: string,
         iconSize: number,
