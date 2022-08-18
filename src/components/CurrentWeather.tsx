@@ -128,7 +128,7 @@ const CurrentWeather = () => {
                 </div>
             ) : (
                 <>
-                    <div className="flex justify-center items-center pt-6 flex-col sm:flex-row">
+                    <div className="flex justify-center items-center pt-6 flex-col border-b-2 border-white mb-6 sm:flex-row sm:border-none">
                         <div className="m-8">
                             {renderIcon(
                                 weatherInfo?.weather?.weather[0]?.icon,
@@ -137,7 +137,7 @@ const CurrentWeather = () => {
                             )}
                         </div>
                         <div className="px-4 mb-8 sm:mb-0">
-                            <p className="text-5xl font-bold">
+                            <p className="text-5xl font-bold text-center">
                                 {Math.round(weatherInfo.weather.main.temp)}° C
                             </p>
                             <h2 className="text-base flex justify-center items-center mt-2 sm:justify-start">
@@ -149,7 +149,7 @@ const CurrentWeather = () => {
                         </div>
                     </div>
                     <div className="flex justify-center pb-4 flex-wrap">
-                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
                             <div className="text-center text-2xl">
                                 <BsSunrise className="inline text-5xl" />
                             </div>
@@ -164,7 +164,7 @@ const CurrentWeather = () => {
                                 )}
                             </p>
                         </div>
-                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
                             <div className="text-center text-2xl">
                                 <FaTemperatureHigh className="inline text-5xl" />
                             </div>
@@ -173,7 +173,7 @@ const CurrentWeather = () => {
                                 C
                             </p>
                         </div>
-                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
                             <div className="text-center text-2xl">
                                 <BsWind className="inline text-5xl" />
                             </div>
@@ -184,7 +184,7 @@ const CurrentWeather = () => {
                                 km/h
                             </p>
                         </div>
-                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
                             <div className="text-center text-2xl">
                                 <FaTemperatureLow className="inline text-5xl" />
                             </div>
@@ -193,7 +193,7 @@ const CurrentWeather = () => {
                                 C
                             </p>
                         </div>
-                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                        <div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto">
                             <div className="text-center text-2xl">
                                 <BsSunset className="inline text-5xl" />
                             </div>
