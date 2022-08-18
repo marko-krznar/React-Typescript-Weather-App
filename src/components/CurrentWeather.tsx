@@ -6,6 +6,7 @@ import {
     BsWind,
     BsFillSunFill,
     BsFillMoonStarsFill,
+    BsEmojiFrown,
 } from "react-icons/bs";
 import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
@@ -37,6 +38,7 @@ interface ICurrentWeather {
             deg: number;
         };
     };
+    errorMsg: string;
 }
 
 const CurrentWeather = () => {
@@ -70,6 +72,7 @@ const CurrentWeather = () => {
                 deg: 0,
             },
         },
+        errorMsg: "",
     });
 
     useEffect(() => {
@@ -78,7 +81,16 @@ const CurrentWeather = () => {
                 `${url}data/2.5/weather?lat=45.8131847&lon=15.9771774&units=metric&appid=${apiKey}`
             )
             .then((res) => {
-                setWeatherInfo({ weather: res.data });
+                setWeatherInfo({
+                    ...weatherInfo,
+                    weather: res.data,
+                });
+            })
+            .catch((err) => {
+                setWeatherInfo({
+                    ...weatherInfo,
+                    errorMsg: err.message,
+                });
             });
     }, []);
 
@@ -105,80 +117,97 @@ const CurrentWeather = () => {
 
     return (
         <section className="px-8 py-4 mx-auto mb-12 mt-12 bg-white/[.2] rounded-lg shadow-md backdrop-blur-lg text-white">
-            <div className="flex justify-center items-center pt-6 flex-col sm:flex-row">
-                <div className="m-8">
-                    {renderIcon(
-                        weatherInfo?.weather?.weather[0]?.icon,
-                        4,
-                        "text-8xl"
-                    )}
-                </div>
-                <div className="px-4 mb-8 sm:mb-0">
-                    <p className="text-5xl font-bold">
-                        {Math.round(weatherInfo.weather.main.temp)}° C
+            {weatherInfo.errorMsg ? (
+                <div className="text-center my-4">
+                    <BsEmojiFrown className="text-6xl mb-6 mx-auto" />
+                    <p className="text-3xl mb-2">
+                        Aaaaaaaah! Something went wrong
                     </p>
-                    <h2 className="text-base flex justify-center items-center mt-2 sm:justify-start">
-                        <IoLocationOutline className="mr-2 text-2xl" />
-                        {/* {location.locations[0].name},{" "}
+                    <p>{weatherInfo.errorMsg}</p>
+                </div>
+            ) : (
+                <>
+                    <div className="flex justify-center items-center pt-6 flex-col sm:flex-row">
+                        <div className="m-8">
+                            {renderIcon(
+                                weatherInfo?.weather?.weather[0]?.icon,
+                                4,
+                                "text-8xl"
+                            )}
+                        </div>
+                        <div className="px-4 mb-8 sm:mb-0">
+                            <p className="text-5xl font-bold">
+                                {Math.round(weatherInfo.weather.main.temp)}° C
+                            </p>
+                            <h2 className="text-base flex justify-center items-center mt-2 sm:justify-start">
+                                <IoLocationOutline className="mr-2 text-2xl" />
+                                {/* {location.locations[0].name},{" "}
                         {location.locations[0].country} */}
-                        Zagreb, Hrvatska
-                    </h2>
-                </div>
-            </div>
-            <div className="flex justify-center pb-4 flex-wrap">
-                <div className="flex align-center flex-col p-4 grow max-w-[50%]">
-                    <div className="text-center text-2xl">
-                        <BsSunrise className="inline text-5xl" />
+                                Zagreb, Hrvatska
+                            </h2>
+                        </div>
                     </div>
-                    <p className="font-bold text-center mt-2">
-                        {new Date(
-                            weatherInfo.weather.sys.sunrise * 1000
-                        ).getHours()}
-                        :
-                        {new Date(
-                            weatherInfo.weather.sys.sunrise * 1000
-                        ).getMinutes()}
-                    </p>
-                </div>
-                <div className="flex align-center flex-col p-4 grow max-w-[50%]">
-                    <div className="text-center text-2xl">
-                        <FaTemperatureHigh className="inline text-5xl" />
+                    <div className="flex justify-center pb-4 flex-wrap">
+                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                            <div className="text-center text-2xl">
+                                <BsSunrise className="inline text-5xl" />
+                            </div>
+                            <p className="font-bold text-center mt-2">
+                                {new Date(
+                                    weatherInfo.weather.sys.sunrise * 1000
+                                ).getHours()}
+                                :
+                                {new Date(
+                                    weatherInfo.weather.sys.sunrise * 1000
+                                ).getMinutes()}
+                            </p>
+                        </div>
+                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                            <div className="text-center text-2xl">
+                                <FaTemperatureHigh className="inline text-5xl" />
+                            </div>
+                            <p className="font-bold text-center mt-2">
+                                {Math.round(weatherInfo.weather.main.temp_min)}°
+                                C
+                            </p>
+                        </div>
+                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                            <div className="text-center text-2xl">
+                                <BsWind className="inline text-5xl" />
+                            </div>
+                            <p className="font-bold text-center mt-2">
+                                {(weatherInfo.weather.wind.speed * 3.6).toFixed(
+                                    2
+                                )}{" "}
+                                km/h
+                            </p>
+                        </div>
+                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                            <div className="text-center text-2xl">
+                                <FaTemperatureLow className="inline text-5xl" />
+                            </div>
+                            <p className="font-bold text-center mt-2">
+                                {Math.round(weatherInfo.weather.main.temp_max)}°
+                                C
+                            </p>
+                        </div>
+                        <div className="flex align-center flex-col p-4 grow max-w-[50%]">
+                            <div className="text-center text-2xl">
+                                <BsSunset className="inline text-5xl" />
+                            </div>
+                            <p className="font-bold text-center mt-2">
+                                {new Date(
+                                    weatherInfo.weather.sys.sunset * 1000
+                                ).getHours()}
+                                :
+                                {new Date(
+                                    weatherInfo.weather.sys.sunset * 1000
+                                ).getMinutes()}
+                            </p>
+                        </div>
                     </div>
-                    <p className="font-bold text-center mt-2">
-                        {Math.round(weatherInfo.weather.main.temp_min)}° C
-                    </p>
-                </div>
-                <div className="flex align-center flex-col p-4 grow max-w-[50%]">
-                    <div className="text-center text-2xl">
-                        <BsWind className="inline text-5xl" />
-                    </div>
-                    <p className="font-bold text-center mt-2">
-                        {(weatherInfo.weather.wind.speed * 3.6).toFixed(2)} km/h
-                    </p>
-                </div>
-                <div className="flex align-center flex-col p-4 grow max-w-[50%]">
-                    <div className="text-center text-2xl">
-                        <FaTemperatureLow className="inline text-5xl" />
-                    </div>
-                    <p className="font-bold text-center mt-2">
-                        {Math.round(weatherInfo.weather.main.temp_max)}° C
-                    </p>
-                </div>
-                <div className="flex align-center flex-col p-4 grow max-w-[50%]">
-                    <div className="text-center text-2xl">
-                        <BsSunset className="inline text-5xl" />
-                    </div>
-                    <p className="font-bold text-center mt-2">
-                        {new Date(
-                            weatherInfo.weather.sys.sunset * 1000
-                        ).getHours()}
-                        :
-                        {new Date(
-                            weatherInfo.weather.sys.sunset * 1000
-                        ).getMinutes()}
-                    </p>
-                </div>
-            </div>
+                </>
+            )}
         </section>
     );
 };
