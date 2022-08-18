@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BsFillSunFill, BsFillMoonStarsFill } from "react-icons/bs";
+import {
+    BsFillSunFill,
+    BsFillMoonStarsFill,
+    BsEmojiFrown,
+} from "react-icons/bs";
 
 interface IFiveDayWeather {
     fiveDayWeather: [
@@ -19,6 +23,7 @@ interface IFiveDayWeather {
             ];
         }
     ];
+    errorMsg: string;
 }
 
 const ForecastWeather = () => {
@@ -43,6 +48,7 @@ const ForecastWeather = () => {
                     ],
                 },
             ],
+            errorMsg: "",
         });
 
     useEffect(() => {
@@ -51,9 +57,20 @@ const ForecastWeather = () => {
                 `${url}data/2.5/forecast?q=Zagreb&units=metric&lang=hr&appid=${apiKey}`
             )
             .then((res) => {
-                setFiveDayWeatherInfo({ fiveDayWeather: res.data.list });
+                setFiveDayWeatherInfo({
+                    ...fiveDayWeatherInfo,
+                    fiveDayWeather: res.data.list,
+                });
+            })
+            .catch((err) => {
+                setFiveDayWeatherInfo({
+                    ...fiveDayWeatherInfo,
+                    errorMsg: err.message,
+                });
             });
     }, []);
+
+    console.log(fiveDayWeatherInfo.errorMsg);
 
     const renderIcon = (
         iconCode: string,
@@ -79,39 +96,52 @@ const ForecastWeather = () => {
     return (
         <div className="App px-4">
             <section className="py-6">
-                <ul className="flex overflow-x-scroll">
-                    {fiveDayWeatherInfo.fiveDayWeather.map((item, i) => {
-                        return (
-                            <li
-                                className="max-w-xs px-8 py-4 mx-auto bg-white/[.2] rounded-lg shadow-md my-2 flex-auto backdrop-blur-lg min-w-max text-white mr-2"
-                                key={i}
-                            >
-                                <span className="block text-2xl text-center my-4 font-bold">
-                                    {Math.round(item.main.temp)}° C
-                                </span>
-                                <div className="m-8 mt-4 flex justify-center items-center w-24 h-24">
-                                    {renderIcon(
-                                        item.weather[0].icon,
-                                        2,
-                                        "text-5xl"
-                                    )}
-                                </div>
-                                <span className="block text-center">
-                                    {item.dt_txt.slice(8, 10)}.
-                                    {item.dt_txt.slice(5, 7)}.
-                                    {item.dt_txt.slice(0, 4)}.
-                                </span>
-                                <span className="block text-center">
-                                    {item.dt_txt.slice(11, 13)}:
-                                    {item.dt_txt.slice(14, 16)}
-                                </span>
-                                <span className="block uppercase text-center my-4">
-                                    {item.weather[0].description}
-                                </span>
-                            </li>
-                        );
-                    })}
-                </ul>
+                {fiveDayWeatherInfo.errorMsg ? (
+                    <div className="m-auto text-white">
+                        <p className="flex justify-center items-center flex-wrap">
+                            <span className="text-4xl flex items-center">
+                                <BsEmojiFrown className="mr-2" /> Oh no!
+                            </span>
+                            <span className="block w-full text-center mt-4">
+                                {fiveDayWeatherInfo.errorMsg}
+                            </span>
+                        </p>
+                    </div>
+                ) : (
+                    <ul className="flex overflow-x-scroll">
+                        {fiveDayWeatherInfo.fiveDayWeather.map((item, i) => {
+                            return (
+                                <li
+                                    className="max-w-xs px-8 py-4 mx-auto bg-white/[.2] rounded-lg shadow-md my-2 flex-auto backdrop-blur-lg min-w-max text-white mr-2"
+                                    key={i}
+                                >
+                                    <span className="block text-2xl text-center my-4 font-bold">
+                                        {Math.round(item.main.temp)}° C
+                                    </span>
+                                    <div className="m-8 mt-4 flex justify-center items-center w-24 h-24">
+                                        {renderIcon(
+                                            item.weather[0].icon,
+                                            2,
+                                            "text-5xl"
+                                        )}
+                                    </div>
+                                    <span className="block text-center">
+                                        {item.dt_txt.slice(8, 10)}.
+                                        {item.dt_txt.slice(5, 7)}.
+                                        {item.dt_txt.slice(0, 4)}.
+                                    </span>
+                                    <span className="block text-center">
+                                        {item.dt_txt.slice(11, 13)}:
+                                        {item.dt_txt.slice(14, 16)}
+                                    </span>
+                                    <span className="block uppercase text-center my-4">
+                                        {item.weather[0].description}
+                                    </span>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                )}
             </section>
         </div>
     );
