@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-    BsFillSunFill,
-    BsFillMoonStarsFill,
-    BsEmojiFrown,
-} from "react-icons/bs";
+import { BsEmojiFrown } from "react-icons/bs";
 import { fromUnixTime, format } from "date-fns";
 
 import { apiKey, useAxios } from "../api/hookAxios";
+import { RenderIcon } from "../RenderIcon";
 
 interface IFiveDayWeatherItem {
     dt_txt: string;
@@ -41,27 +38,6 @@ const ForecastWeather = () => {
         }
     }, [response]);
 
-    const renderIcon = (
-        iconCode: string,
-        iconSize: number,
-        iconFont: string
-    ) => {
-        if (iconCode === "01d") {
-            return <BsFillSunFill className={iconFont} />;
-        }
-
-        if (iconCode === "01n") {
-            return <BsFillMoonStarsFill className={iconFont} />;
-        }
-
-        return (
-            <img
-                src={`https://openweathermap.org/img/wn/${iconCode}@${iconSize}x.png`}
-                alt={"weather"}
-            />
-        );
-    };
-
     return (
         <section className="py-6">
             {loading ? (
@@ -95,7 +71,7 @@ const ForecastWeather = () => {
                                                     ° C
                                                 </span>
                                                 <div className="m-8 mt-4 flex justify-center items-center w-24 h-24">
-                                                    {renderIcon(
+                                                    {RenderIcon(
                                                         item.weather[0].icon,
                                                         2,
                                                         "text-5xl"

@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {
-    BsSunset,
-    BsSunrise,
-    BsWind,
-    BsFillSunFill,
-    BsFillMoonStarsFill,
-    BsEmojiFrown,
-} from "react-icons/bs";
+import { BsSunset, BsSunrise, BsWind, BsEmojiFrown } from "react-icons/bs";
 import { FaTemperatureHigh, FaTemperatureLow } from "react-icons/fa";
 import { IoLocationOutline } from "react-icons/io5";
 import { fromUnixTime, format } from "date-fns";
 
 import { apiKey, useAxios } from "../api/hookAxios";
+import { RenderIcon } from "../RenderIcon";
 
 interface ICurrentWeather {
     weather: [
@@ -79,27 +73,6 @@ const CurrentWeather = () => {
         }
     }, [response]);
 
-    const renderIcon = (
-        iconCode: string,
-        iconSize: number,
-        iconFont: string
-    ) => {
-        if (iconCode === "01d") {
-            return <BsFillSunFill className={iconFont} />;
-        }
-
-        if (iconCode === "01n") {
-            return <BsFillMoonStarsFill className={iconFont} />;
-        }
-
-        return (
-            <img
-                src={`https://openweathermap.org/img/wn/${iconCode}@${iconSize}x.png`}
-                alt={`${data.weather[0].description}`}
-            />
-        );
-    };
-
     return (
         <section className="px-8 py-4 mx-auto mb-12 mt-12 bg-white/[.2] rounded-lg shadow-md backdrop-blur-lg text-white">
             {loading ? (
@@ -120,7 +93,7 @@ const CurrentWeather = () => {
                             <>
                                 <div className="flex justify-center items-center pt-6 flex-col border-b-2 border-white mb-6 sm:flex-row sm:border-none">
                                     <div className="m-8">
-                                        {renderIcon(
+                                        {RenderIcon(
                                             data?.weather[0]?.icon,
                                             4,
                                             "text-8xl"
