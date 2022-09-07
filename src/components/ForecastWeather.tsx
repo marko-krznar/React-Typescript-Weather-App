@@ -24,10 +24,12 @@ interface IFiveDayWeatherState {
     list: [];
 }
 
-const ForecastWeather = () => {
+const ForecastWeather = (props: any) => {
+    const { cityInfo } = props;
+
     const { response, loading, error }: any = useAxios({
         method: "GET",
-        url: `data/2.5/forecast?q=Zagreb&units=metric&lang=hr&appid=${apiKey}`,
+        url: `data/2.5/forecast?lat=${cityInfo.lat}&lon=${cityInfo.lon}&units=metric&appid=${apiKey}`,
     });
 
     const [data, setData] = useState<IFiveDayWeatherState>({ list: [] });

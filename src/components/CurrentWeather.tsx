@@ -34,10 +34,12 @@ interface ICurrentWeather {
     };
 }
 
-const CurrentWeather = () => {
+const CurrentWeather = (props: any) => {
+    const { cityInfo } = props;
+
     const { response, loading, error }: any = useAxios({
         method: "GET",
-        url: `data/2.5/weather?lat=45.8131847&lon=15.9771774&units=metric&appid=${apiKey}`,
+        url: `data/2.5/weather?lat=${cityInfo.lat}&lon=${cityInfo.lon}&units=metric&appid=${apiKey}`,
     });
 
     const [data, setData] = useState<ICurrentWeather>({
@@ -106,7 +108,8 @@ const CurrentWeather = () => {
                                         <h2 className="text-base flex justify-center items-center mt-2 sm:justify-start">
                                             <IoLocationOutline className="mr-2 text-2xl" />
                                             <span className="opacity-80">
-                                                Zagreb, Hrvatska
+                                                {cityInfo.name},{" "}
+                                                {cityInfo.country}
                                             </span>
                                         </h2>
                                     </div>
