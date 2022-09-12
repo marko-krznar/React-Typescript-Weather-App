@@ -1,41 +1,45 @@
-import React, { useState } from "react";
-import "./App.css";
+import React, { useState, useEffect } from "react";
 import CurrentWeather from "./components/CurrentWeather";
 import ForecastWeather from "./components/ForecastWeather";
 import { InputCity } from "./components/InputCity";
 
+import "./App.css";
 import { apiKey } from "./api/hookAxios";
 
 const App = () => {
-	const [state, setState] = useState("");
+	const [state, setState] = useState("Zagreb");
 
 	const [cityInfo, setCityInfo] = useState<any>({});
 
 	const isEmpty = Object.keys(cityInfo).length === 0;
 
+	const axios = require("axios");
+
+	const fetchCityData = () => {
+		axios
+			.get(
+				`https://api.openweathermap.org/geo/1.0/direct?q=${state}&limit=1&units=metric&appid=${apiKey}`
+			)
+
+			.then((response: any) => {
+				if (response.data !== null && response.data !== undefined) {
+					setCityInfo(response.data[0]);
+				}
+			})
+
+			.catch((err: any) => {
+				console.log(err);
+			});
+	};
+
+	useEffect(() => {
+		fetchCityData();
+	}, []);
+
 	const handleSubmit = (event: React.FormEvent<HTMLButtonElement>) => {
 		event.preventDefault();
 
-		const axios = require("axios");
-
-		const fetchCity = () => {
-			axios
-				.get(
-					`https://api.openweathermap.org/geo/1.0/direct?q=${state}&limit=1&units=metric&appid=${apiKey}`
-				)
-
-				.then((response: any) => {
-					if (response.data !== null && response.data !== undefined) {
-						setCityInfo(response.data[0]);
-					}
-				})
-
-				.catch((err: any) => {
-					console.log(err);
-				});
-		};
-
-		fetchCity();
+		fetchCityData();
 
 		setState("");
 
@@ -62,13 +66,11 @@ const App = () => {
 				state={state}
 				cityInfo={cityInfo}
 			/>
-			{isEmpty === false ? (
+			{isEmpty === false && (
 				<>
 					<CurrentWeather cityInfo={cityInfo} />
 					<ForecastWeather cityInfo={cityInfo} />
 				</>
-			) : (
-				<></>
 			)}
 		</div>
 	);
