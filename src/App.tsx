@@ -41,7 +41,7 @@ const App = () => {
 
 	useEffect(() => {
 		fetchCityData();
-	}, []);
+	}, [error]);
 
 	const handleSubmit = (event: React.FormEvent<HTMLButtonElement>) => {
 		event.preventDefault();
@@ -73,7 +73,7 @@ const App = () => {
 				state={state}
 				cityInfo={cityInfo}
 			/>
-			{loading == true && (
+			{loading === true && (
 				<div className="text-center my-4">
 					<div role="status">
 						<svg
@@ -95,7 +95,7 @@ const App = () => {
 					</div>
 				</div>
 			)}
-			{error && (
+			{error && isEmpty && loading === false && (
 				<div className="text-center my-4 px-8 py-4 mx-auto mb-12 mt-12 bg-white/[.2] rounded-lg shadow-md backdrop-blur-lg text-white">
 					<BsEmojiFrown className="text-6xl mb-6 mx-auto" />
 					<p className="text-3xl mb-2">
@@ -104,7 +104,7 @@ const App = () => {
 					<p>{error}</p>
 				</div>
 			)}
-			{isEmpty === false && (
+			{isEmpty === false && loading === false && (
 				<>
 					<CurrentWeather cityInfo={cityInfo} />
 					<ForecastWeather cityInfo={cityInfo} />
