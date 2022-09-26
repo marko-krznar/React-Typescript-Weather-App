@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import CurrentWeather from "./components/CurrentWeather";
 import ForecastWeather from "./components/ForecastWeather";
 import { InputCity } from "./components/InputCity";
+
 import { BsEmojiFrown } from "react-icons/bs";
 
 import "./App.css";
