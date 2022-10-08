@@ -64,6 +64,22 @@ const App = () => {
 
 	return (
 		<div className="App p-8">
+			<div className="absolute bottom-1 text-white/25 text-center w-full text-xs">
+				Photo by{" "}
+				<a
+					className="text-white/50 hover:text-white"
+					href="https://unsplash.com/@photogolic?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+				>
+					Anatoliy Shostak
+				</a>{" "}
+				on{" "}
+				<a
+					className="text-white/50 hover:text-white"
+					href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
+				>
+					Unsplash
+				</a>
+			</div>
 			<div className="flex max-w-[800px] mx-auto">
 				<div className="bg-[rgba(9,9,9,0.8)] grow-[1] p-8 flex flex-col">
 					<h2 className="text-white font-bold mb-4 text-2xl">
