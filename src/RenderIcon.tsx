@@ -7,19 +7,11 @@ export const RenderIcon = (
 	iconWidth: string
 ) => {
 	if (iconCode === "01d") {
-		return (
-			<BsFillSunFill
-				className={`${iconFont} w-[200px] py-[3rem] h-[200px]`}
-			/>
-		);
+		return <BsFillSunFill className={iconFont} />;
 	}
 
 	if (iconCode === "01n") {
-		return (
-			<BsFillMoonStarsFill
-				className={`${iconFont} w-[200px] py-[3rem] h-[200px]`}
-			/>
-		);
+		return <BsFillMoonStarsFill className={iconFont} />;
 	}
 
 	return (

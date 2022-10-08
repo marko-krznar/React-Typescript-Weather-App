@@ -112,7 +112,7 @@ const CurrentWeather = (props: any) => {
 										{RenderIcon(
 											data?.weather[0]?.icon,
 											4,
-											"text-8xl",
+											"text-8xl w-[200px] py-[3rem] h-[200px]",
 											"max-w-full"
 										)}
 									</div>
