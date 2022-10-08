@@ -76,7 +76,7 @@ const CurrentWeather = (props: any) => {
 	}, [response]);
 
 	return (
-		<section className="px-8 py-4 mx-auto mb-12 mt-12 bg-white/[.2] rounded-lg shadow-md backdrop-blur-lg text-white">
+		<div className="text-white flex flex-col flex-1 mt-16">
 			{loading ? (
 				<div role="status" className="animate-pulse">
 					<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 mb-4"></div>
@@ -102,31 +102,34 @@ const CurrentWeather = (props: any) => {
 							<p>{error.message}</p>
 						</div>
 					)}
-					<div>
+					<>
 						{data && (
 							<>
-								<div className="flex justify-center items-center pt-6 flex-col border-b-2 border-white mb-6 sm:flex-row sm:border-none">
-									<div className="m-8">
+								<p>Friday</p>
+								<p>January 2022</p>
+								<div className="flex flex-col">
+									<div className="translate-y-[1.5rem] h-[200px]">
 										{RenderIcon(
 											data?.weather[0]?.icon,
 											4,
-											"text-8xl"
+											"text-8xl",
+											"max-w-full"
 										)}
 									</div>
-									<div className="px-4 mb-8 sm:mb-0">
-										<p className="text-5xl font-bold text-center">
-											{Math.round(data.main.temp)}° C
-										</p>
-										<h2 className="text-base flex justify-center items-center mt-2 sm:justify-start">
-											<IoLocationOutline className="mr-2 text-2xl" />
-											<span className="opacity-80">
-												{cityInfo.name},{" "}
-												{cityInfo.country}
-											</span>
-										</h2>
-									</div>
+									<p className="text-4xl">Scattered Clouds</p>
 								</div>
-								<div className="flex justify-center pb-4 flex-wrap">
+								<div className="flex flex-1 flex-col justify-end">
+									<p className="text-7xl font-bold mb-6">
+										{Math.round(data.main.temp)}° C
+									</p>
+									<h2 className="">
+										{/* <IoLocationOutline className="mr-2 text-2xl" /> */}
+										<span className="">
+											{cityInfo.name}, {cityInfo.country}
+										</span>
+									</h2>
+								</div>
+								{/* <div className="flex justify-center pb-4 flex-wrap">
 									<div className="flex align-center flex-col p-4 grow w-1/2 sm:w-auto sm:max-w-fit md:mx-6">
 										<div className="text-center text-2xl">
 											<BsSunrise className="inline text-5xl" />
@@ -182,13 +185,13 @@ const CurrentWeather = (props: any) => {
 											)}
 										</p>
 									</div>
-								</div>
+								</div> */}
 							</>
 						)}
-					</div>
+					</>
 				</>
 			)}
-		</section>
+		</div>
 	);
 };
 
