@@ -41,7 +41,7 @@ const ForecastWeather = (props: any) => {
 	}, [response]);
 
 	return (
-		<section className="py-6">
+		<div className="bg-blue-500 overflow-y-scroll h-[calc(100vh_-_4rem)] text-white">
 			{loading ? (
 				<div role="status" className="animate-pulse">
 					<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 mb-4"></div>
@@ -57,7 +57,7 @@ const ForecastWeather = (props: any) => {
 					<span className="sr-only">Loading...</span>
 				</div>
 			) : (
-				<div>
+				<>
 					{error && (
 						<div className="m-auto text-white">
 							<p className="flex justify-center items-center flex-wrap">
@@ -70,29 +70,41 @@ const ForecastWeather = (props: any) => {
 							</p>
 						</div>
 					)}
-					<div>
+					<>
 						{data && (
-							<ul className="flex overflow-x-scroll">
+							<ul className="flex flex-col p-8">
 								{data.list.map(
 									(item: IFiveDayWeatherItem, i: number) => {
 										return (
 											<li
-												className="max-w-xs px-8 py-4 mx-auto bg-white/[.2] rounded-lg shadow-md my-2 flex-auto backdrop-blur-lg min-w-max text-white mr-2 last-of-type:mr-0"
+												className="flex-auto border-b pb-6 mb-6 border-[rgba(255,255,255,0.4)] last:pb-0 last:mb-0 last:border-0"
 												key={i}
 											>
-												<span className="block text-2xl text-center my-4 font-bold">
-													{Math.round(item.main.temp)}
-													° C
+												<span className="capitalize">
+													{
+														item.weather[0]
+															.description
+													}
 												</span>
-												<div className="m-8 mt-4 flex justify-center items-center w-24 h-24">
-													{RenderIcon(
-														item.weather[0].icon,
-														2,
-														"text-5xl"
-													)}
+												<div className="flex justify-between items-center my-2">
+													<span className="text-3xl font-bold">
+														{Math.round(
+															item.main.temp
+														)}
+														° C
+													</span>
+													<div className="w-[60px] h-[60px] flex justify-center items-center translate-x-[.5rem]">
+														{RenderIcon(
+															item.weather[0]
+																.icon,
+															2,
+															"text-[2rem]",
+															"max-w-[60px]"
+														)}
+													</div>
 												</div>
-												<p className="opacity-80">
-													<span className="block text-center">
+												<div className="flex justify-between items-center">
+													<span className="">
 														{format(
 															new Date(
 																fromUnixTime(
@@ -102,7 +114,7 @@ const ForecastWeather = (props: any) => {
 															"dd.MM.yyyy"
 														)}
 													</span>
-													<span className="block text-center">
+													<span className="">
 														{format(
 															new Date(
 																fromUnixTime(
@@ -112,23 +124,17 @@ const ForecastWeather = (props: any) => {
 															"HH:mm"
 														)}
 													</span>
-												</p>
-												<span className="block uppercase text-center my-4 bg-white text-gray-800 text-xs font-semibold mr-2 px-2.5 py-1.5 rounded">
-													{
-														item.weather[0]
-															.description
-													}
-												</span>
+												</div>
 											</li>
 										);
 									}
 								)}
 							</ul>
 						)}
-					</div>
-				</div>
+					</>
+				</>
 			)}
-		</section>
+		</div>
 	);
 };
 
