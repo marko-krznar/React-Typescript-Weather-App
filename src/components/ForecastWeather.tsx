@@ -41,7 +41,7 @@ const ForecastWeather = (props: any) => {
 	}, [response]);
 
 	return (
-		<div className="bg-blue-500 overflow-y-scroll h-[calc(100vh_-_4rem)] text-white">
+		<div className="bg-blue-500 overflow-y-scroll h-[calc(100vh_-_4rem)] text-white basis-2/5">
 			{loading ? (
 				<div role="status" className="animate-pulse">
 					<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 mb-4"></div>
@@ -59,7 +59,7 @@ const ForecastWeather = (props: any) => {
 			) : (
 				<>
 					{error && (
-						<div className="m-auto text-white">
+						<div className="m-auto text-white h-full flex items-center">
 							<p className="flex justify-center items-center flex-wrap">
 								<span className="text-4xl flex items-center">
 									<BsEmojiFrown className="mr-2" /> Oh no!
