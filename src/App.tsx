@@ -63,8 +63,8 @@ const App = () => {
 	};
 
 	return (
-		<div className="App p-8">
-			<div className="absolute bottom-1 text-white/25 text-center w-full text-xs">
+		<div className="App relative md:p-8 md:flex md:items-center md:justify-center md:min-h-screen">
+			<div className="absolute bottom-2 text-white/25 text-center w-full text-xs">
 				Photo by{" "}
 				<a
 					className="text-white/50 hover:text-white"
@@ -80,7 +80,7 @@ const App = () => {
 					Unsplash
 				</a>
 			</div>
-			<div className="flex max-w-[800px] mx-auto">
+			<div className="flex flex-col max-w-[60rem] md:max-h-[45rem] mx-auto md:flex-row md:flex-1">
 				<div className="bg-[rgba(9,9,9,0.8)] grow-[1] p-8 flex flex-col">
 					<h2 className="text-white font-bold mb-4 text-2xl">
 						Search Weather by City

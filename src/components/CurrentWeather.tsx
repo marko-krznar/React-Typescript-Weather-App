@@ -76,7 +76,7 @@ const CurrentWeather = (props: any) => {
 	}, [response]);
 
 	return (
-		<div className="text-white flex flex-col flex-1 mt-16">
+		<div className="text-white flex flex-col flex-1 mt-16 mb-8">
 			{loading ? (
 				<div role="status" className="animate-pulse">
 					<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 mb-4"></div>
@@ -116,7 +116,9 @@ const CurrentWeather = (props: any) => {
 											"max-w-full"
 										)}
 									</div>
-									<p className="text-4xl">Scattered Clouds</p>
+									<p className="text-4xl mb-6">
+										Scattered Clouds
+									</p>
 								</div>
 								<div className="flex flex-1 flex-col justify-end">
 									<p className="text-7xl font-bold mb-6">
