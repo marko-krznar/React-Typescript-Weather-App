@@ -4,6 +4,7 @@ import { fromUnixTime, format } from "date-fns";
 
 import { apiKey, useAxios } from "../api/hookAxios";
 import { RenderIcon } from "../RenderIcon";
+import HourlyWeather from "./HourlyWeather";
 
 interface IFiveDayWeatherItem {
 	dt_txt: string;
@@ -40,6 +41,30 @@ const ForecastWeather = (props: any) => {
 		}
 	}, [response]);
 
+	const arrayBySameDate = data?.list.filter((forecast: any) => {
+		const removedTime = forecast.dt_txt.split(" ")[0];
+
+		return removedTime === "2024-03-15";
+	});
+
+	// Logic
+	// Object to store items grouped by date
+	const itemsByDate: { [key: string]: Array<any> } = {};
+
+	// Populate itemsByDate
+	data?.list.forEach((item: any) => {
+		const splitDateString = item?.dt_txt.split(" ");
+		const splitedDateString = splitDateString[0];
+
+		if (!itemsByDate[splitedDateString]) {
+			itemsByDate[splitedDateString] = [];
+		}
+
+		itemsByDate[splitedDateString].push(item);
+	});
+
+	console.log("data", itemsByDate);
+
 	return (
 		<div className="bg-blue-500 overflow-y-scroll text-white basis-2/5 relative">
 			{/* <div className="scroll-indicator">
@@ -71,6 +96,47 @@ const ForecastWeather = (props: any) => {
 									{error.message}
 								</span>
 							</p>
+						</div>
+					)}
+					{arrayBySameDate && (
+						<div className="grid grid-cols-8">
+							<div>
+								{Object.keys(itemsByDate).map((date) => (
+									<div key={date}>
+										<h2>{date}</h2>
+										{itemsByDate[date].map(
+											(data, index) => (
+												<div key={index}>
+													<HourlyWeather
+														date={data.dt_txt}
+														temperature={
+															data.temperature
+														}
+														// date={hourlyDayWeather.dt_txt}
+														// date={hourlyDayWeather.dt_txt}
+													/>
+													<p>{data.dt_txt}</p>
+													{/* Display other weather data here */}
+												</div>
+											)
+										)}
+									</div>
+								))}
+							</div>
+							{/* {data?.list.map((hourlyDayWeather: any) => {
+								const temperature = Math.round(
+									hourlyDayWeather.main.temp
+								);
+
+								return (
+									<HourlyWeather
+										date={hourlyDayWeather.dt_txt}
+										temperature={temperature}
+										// date={hourlyDayWeather.dt_txt}
+										// date={hourlyDayWeather.dt_txt}
+									/>
+								);
+							})} */}
 						</div>
 					)}
 					<>
