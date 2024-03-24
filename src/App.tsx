@@ -81,7 +81,7 @@ const App = () => {
 				</a>
 			</div>
 			<div className="flex flex-col max-w-[80rem] md:max-h-[45rem] mx-auto md:flex-row md:flex-1">
-				<div className="bg-[rgba(9,9,9,0.8)] grow-[1] p-8 flex flex-col">
+				<div className="bg-[rgba(9,9,9,0.8)] p-8 flex flex-col">
 					<h2 className="text-white font-bold mb-4 text-2xl">
 						Search Weather by City
 					</h2>
