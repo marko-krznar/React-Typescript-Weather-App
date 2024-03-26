@@ -3,53 +3,14 @@ import { BsEmojiFrown } from "react-icons/bs";
 
 function HourlyWeatherItem() {
 	return (
-		<div
-			style={{
-				display: "flex",
-				flexDirection: "column",
-				gap: "1rem",
-				backgroundColor: "#0298E2",
-				width: "fit-content",
-				borderRadius: "0.5rem",
-			}}
-		>
-			<span
-				style={{
-					background: "#0288D1",
-					textAlign: "center",
-					fontSize: "12px",
-					fontWeight: "bold",
-					padding: "0.25rem",
-					borderRadius: "0.5rem 0.5rem 0 0",
-				}}
-			>
+		<div className="flex flex-col gap-4 rounded-md w-fit bg-custom-blue-1">
+			<span className="text-center text-white text-xs font-bold py-1 px-2 rounded-t-md bg-custom-blue-2">
 				22:00
 			</span>
-			<div
-				style={{
-					display: "flex",
-					flexDirection: "column",
-					gap: "1rem",
-					alignItems: "center",
-					padding: "0 1rem 1rem",
-				}}
-			>
+			<div className="flex flex-col items-center gap-4 p-4 pt-0">
 				<BsEmojiFrown />
-				<span
-					style={{
-						fontSize: "12px",
-					}}
-				>
-					Clear Sky
-				</span>
-				<span
-					style={{
-						fontSize: "20px",
-						fontWeight: "bold",
-					}}
-				>
-					13° C
-				</span>
+				<span className="text-xs">Clear Sky</span>
+				<span className="text-xl font-bold">13° C</span>
 			</div>
 		</div>
 	);

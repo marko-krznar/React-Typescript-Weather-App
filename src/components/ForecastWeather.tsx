@@ -64,13 +64,8 @@ const ForecastWeather = (props: any) => {
 		itemsByDate[splitedDateString].push(item);
 	});
 
-	// console.log("data", itemsByDate);
-
 	return (
-		<div
-			className="overflow-y-scroll text-white relative flex-1 p-6 gap-6 flex flex-col"
-			style={{ backgroundColor: "#03A9F4" }}
-		>
+		<div className="overflow-y-scroll text-white relative flex-1 p-6 gap-6 flex flex-col bg-custom-blue-4">
 			{/* Date element */}
 			<HourlyWeatherSection />
 			<HourlyWeatherSection />
