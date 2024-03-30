@@ -42,38 +42,24 @@ const ForecastWeather = (props: any) => {
 		}
 	}, [response]);
 
-	// const arrayBySameDate = data?.list.filter((forecast: any) => {
-	// 	const removedTime = forecast.dt_txt.split(" ")[0];
-
-	// 	return removedTime === "2024-03-15";
-	// });
-
-	// Logic
 	// Object to store items grouped by date
-	const itemsByDate: { [key: string]: Array<any> } = {};
+	const weatherItemsByDate: { [key: string]: Array<any> } = {};
 
 	// Populate itemsByDate
-	data?.list.forEach((item: any) => {
-		const splitDateString = item?.dt_txt.split(" ");
-		const splitedDateString = splitDateString[0];
+	data?.list &&
+		data?.list.forEach((item: any) => {
+			const splitDateString = item?.dt_txt.split(" ");
+			const splitedDateString = splitDateString[0];
 
-		if (!itemsByDate[splitedDateString]) {
-			itemsByDate[splitedDateString] = [];
-		}
+			if (!weatherItemsByDate[splitedDateString]) {
+				weatherItemsByDate[splitedDateString] = [];
+			}
 
-		itemsByDate[splitedDateString].push(item);
-	});
+			weatherItemsByDate[splitedDateString].push(item);
+		});
 
 	return (
 		<div className="overflow-y-scroll text-white relative flex-1 p-6 gap-6 flex flex-col bg-custom-blue-4">
-			{/* Date element */}
-			<HourlyWeatherSection />
-			<HourlyWeatherSection />
-			<HourlyWeatherSection />
-			<HourlyWeatherSection />
-			{/* <div className="scroll-indicator">
-				<BsChevronDoubleDown />
-			</div> */}
 			{loading ? (
 				<div role="status" className="animate-pulse">
 					<div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-700 mb-4"></div>
@@ -103,58 +89,83 @@ const ForecastWeather = (props: any) => {
 						</div>
 					)}
 					{data && (
-						<ul className="flex flex-col p-8 dis hidden">
-							{data.list.map(
-								(item: IFiveDayWeatherItem, i: number) => {
+						<>
+							{Object.keys(weatherItemsByDate).map(
+								(weatherItemByDate) => {
 									return (
-										<li
-											className="flex-auto border-b pb-6 mb-6 border-[rgba(255,255,255,0.4)] last:pb-0 last:mb-0 last:border-0"
-											key={i}
-										>
-											<span className="capitalize">
-												{item.weather[0].description}
-											</span>
-											<div className="flex justify-between items-center my-2">
-												<span className="text-3xl font-bold">
-													{Math.round(item.main.temp)}
-													° C
-												</span>
-												<div className="w-[60px] h-[60px] flex justify-center items-center translate-x-[.5rem]">
-													{RenderIcon(
-														item.weather[0].icon,
-														2,
-														"text-[2rem]",
-														"max-w-[60px]"
-													)}
-												</div>
-											</div>
-											<div className="flex justify-between items-center">
-												<span className="">
-													{format(
-														new Date(
-															fromUnixTime(
-																item.dt
-															)
-														),
-														"dd.MM.yyyy"
-													)}
-												</span>
-												<span className="">
-													{format(
-														new Date(
-															fromUnixTime(
-																item.dt
-															)
-														),
-														"HH:mm"
-													)}
-												</span>
-											</div>
-										</li>
+										<HourlyWeatherSection
+											key={weatherItemByDate}
+											weatherItemByDate={
+												weatherItemByDate
+											}
+											weatherItemsByHour={
+												weatherItemsByDate[
+													weatherItemByDate
+												]
+											}
+										/>
 									);
 								}
 							)}
-						</ul>
+							<ul className="flex flex-col p-8 dis hidden">
+								{data.list.map(
+									(item: IFiveDayWeatherItem, i: number) => {
+										return (
+											<li
+												className="flex-auto border-b pb-6 mb-6 border-[rgba(255,255,255,0.4)] last:pb-0 last:mb-0 last:border-0"
+												key={i}
+											>
+												<span className="capitalize">
+													{
+														item.weather[0]
+															.description
+													}
+												</span>
+												<div className="flex justify-between items-center my-2">
+													<span className="text-3xl font-bold">
+														{Math.round(
+															item.main.temp
+														)}
+														° C
+													</span>
+													<div className="w-[60px] h-[60px] flex justify-center items-center translate-x-[.5rem]">
+														{RenderIcon(
+															item.weather[0]
+																.icon,
+															2,
+															"text-[2rem]",
+															"max-w-[60px]"
+														)}
+													</div>
+												</div>
+												<div className="flex justify-between items-center">
+													<span className="">
+														{format(
+															new Date(
+																fromUnixTime(
+																	item.dt
+																)
+															),
+															"dd.MM.yyyy"
+														)}
+													</span>
+													<span className="">
+														{format(
+															new Date(
+																fromUnixTime(
+																	item.dt
+																)
+															),
+															"HH:mm"
+														)}
+													</span>
+												</div>
+											</li>
+										);
+									}
+								)}
+							</ul>
+						</>
 					)}
 				</>
 			)}

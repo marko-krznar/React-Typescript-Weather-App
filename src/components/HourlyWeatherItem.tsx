@@ -1,16 +1,25 @@
-import React from "react";
-import { BsEmojiFrown } from "react-icons/bs";
+import { fromUnixTime, format } from "date-fns";
+import { RenderIcon } from "../RenderIcon";
 
-function HourlyWeatherItem() {
+function HourlyWeatherItem({ weatherItemByHour }: any) {
 	return (
 		<div className="flex flex-col gap-4 rounded-md w-fit bg-custom-blue-1">
 			<span className="text-center text-white text-xs font-bold py-1 px-2 rounded-t-md bg-custom-blue-2">
-				22:00
+				{format(new Date(fromUnixTime(weatherItemByHour.dt)), "HH:mm")}
 			</span>
 			<div className="flex flex-col items-center gap-4 p-4 pt-0">
-				<BsEmojiFrown />
-				<span className="text-xs">Clear Sky</span>
-				<span className="text-xl font-bold">13° C</span>
+				{RenderIcon(
+					weatherItemByHour.weather[0].icon,
+					2,
+					"text-[2rem]",
+					"max-w-[60px]"
+				)}
+				<span className="text-xs">
+					{weatherItemByHour.weather[0].description}
+				</span>
+				<span className="text-xl font-bold">
+					{Math.round(weatherItemByHour.main.temp)}° C
+				</span>
 			</div>
 		</div>
 	);
