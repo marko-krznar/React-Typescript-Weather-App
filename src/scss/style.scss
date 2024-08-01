@@ -1,0 +1,33 @@
+@import "./reset";
+@import "./theme";
+@import "./text";
+
+.wa-wrapper {
+	height: 100vh;
+	background: url("../images/stacked-waves-haikei.svg") no-repeat center
+		right/cover;
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+.wa-container {
+	height: 100%;
+	border-radius: 1rem;
+	backdrop-filter: blur(1rem);
+	-webkit-backdrop-filter: blur(1rem);
+	background: rgba($white, 0.2);
+	border: 1px solid rgba($white, 0.3);
+	box-shadow: 0 0.5rem 1.875rem rgba($white, 0.1);
+	display: flex;
+}
+
+.wa-search-wrapper {
+	min-width: 30%;
+	padding: 1rem;
+}
+
+.wa-weather-info-wrapper {
+	flex-grow: 1;
+	border-left: 1px solid rgba($white, 0.3);
+	padding: 1rem;
+}
