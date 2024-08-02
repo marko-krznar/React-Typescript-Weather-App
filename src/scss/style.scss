@@ -1,6 +1,7 @@
 @import "./reset";
 @import "./theme";
 @import "./text";
+@import "./components/search-form";
 
 .wa-wrapper {
 	height: 100vh;
@@ -26,8 +27,26 @@
 	padding: 1rem;
 }
 
-.wa-weather-info-wrapper {
+.wa-cards {
 	flex-grow: 1;
 	border-left: 1px solid rgba($white, 0.3);
+	padding: 2rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.wa-cards-wrapper {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1rem;
+}
+
+.wa-card-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	background: rgb(255 255 255 / 18%);
+	border-radius: 1rem;
 	padding: 1rem;
 }
