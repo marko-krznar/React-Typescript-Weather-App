@@ -28,17 +28,20 @@ function Search() {
 	const formattedDate = `${dayName}, ${day}.${month}.${year}`;
 
 	return (
-		<div className="wa-search-wrapper">
+		<div className="wa-container wa-search-wrapper">
 			<SearchForm />
-			<h1>{currentWeather.name}</h1>
+			<h1>{`${currentWeather.name}, ${currentWeather.sys.country}`}</h1>
 			<div>
 				<img
 					src={`https://openweathermap.org/img/wn/${currentWeather.weather[0].icon}@4x.png`}
 					alt={currentWeather.weather[0].description}
 				/>
 			</div>
+			<p className="wa-temp">
+				{currentWeather.main.temp.toFixed(0)}
+				<span className="wa-temp-sign">°C</span>
+			</p>
 			<p>{formattedDate}</p>
-			<p>{currentWeather.main.temp}</p>
 			<p>{currentWeather.weather[0].main}</p>
 		</div>
 	);

@@ -5,32 +5,21 @@
 
 .wa-wrapper {
 	height: 100vh;
-	background: url("../images/stacked-waves-haikei.svg") no-repeat center
-		right/cover;
-	padding: 2rem;
-	box-sizing: border-box;
-}
-
-.wa-container {
-	height: 100%;
-	border-radius: 1rem;
-	backdrop-filter: blur(1rem);
-	-webkit-backdrop-filter: blur(1rem);
-	background: rgba($white, 0.2);
-	border: 1px solid rgba($white, 0.3);
-	box-shadow: 0 0.5rem 1.875rem rgba($white, 0.1);
+	background-color: $gray-light-1;
 	display: flex;
 }
 
+.wa-container {
+	padding: 64px;
+}
+
 .wa-search-wrapper {
-	min-width: 30%;
-	padding: 1rem;
+	min-width: 400px;
+	background-color: $white;
 }
 
 .wa-cards {
 	flex-grow: 1;
-	border-left: 1px solid rgba($white, 0.3);
-	padding: 2rem;
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
@@ -46,7 +35,45 @@
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	background: rgb(255 255 255 / 18%);
+	background-color: $white;
 	border-radius: 1rem;
 	padding: 1rem;
+}
+
+.wa-search-form-wrapper {
+	display: flex;
+}
+
+.wa-input-wrapper {
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	input {
+		font-size: 1rem;
+		padding: 0.5rem 2.5rem 0.5rem 2rem;
+		flex-grow: 1;
+	}
+
+	> .svg-inline--fa,
+	> button {
+		position: absolute;
+	}
+
+	> .svg-inline--fa {
+		left: 8px;
+	}
+
+	> button {
+		right: 0;
+		height: 100%;
+		font-size: 1rem;
+		background: transparent;
+		border: transparent;
+		padding: 0 1rem;
+	}
+}
+
+.wa-button {
+	padding: 0 1rem;
 }

@@ -54,10 +54,8 @@ function App() {
 
 	return (
 		<div className="wa-wrapper">
-			<div className="wa-container">
-				<SearchSidebar />
-				<Cards />
-			</div>
+			<SearchSidebar />
+			<Cards />
 		</div>
 	);
 }

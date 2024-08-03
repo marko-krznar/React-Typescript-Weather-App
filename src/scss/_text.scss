@@ -1,8 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
 
 $font-weight-normal: 400;
 $font-weight-bold: 700;
 
 body {
+	font-family: "Nunito", sans-serif;
+}
+
+.wa-temp {
 	font-family: "Inter", sans-serif;
+	font-size: 64px;
+	display: flex;
+	align-items: flex-start;
+
+	.wa-temp-sign {
+		font-size: 32px;
+		padding-top: 0.5rem;
+	}
+}
+
+.wa-title {
+	font-size: 32px;
+}
+
+h2.heading {
+	color: $gray-medium-1;
 }
