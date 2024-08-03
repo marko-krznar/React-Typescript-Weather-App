@@ -1,68 +1,82 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+	faWind,
+	faTemperatureArrowUp,
+	faTemperatureArrowDown,
+	faDroplet,
+	faCircleUp,
+	faCircleDown,
+	faEye,
+	faCloud,
+} from "@fortawesome/free-solid-svg-icons";
+
 import { currentWeather } from "../App";
+import CardItem from "./CardItem";
 
 function Cards() {
+	const weatherArray = [
+		{
+			iconName: <FontAwesomeIcon icon={faWind} />,
+			itemName: "Wind",
+			value: currentWeather.wind.speed,
+			measureUnit: "km/h",
+		},
+		{
+			iconName: <FontAwesomeIcon icon={faTemperatureArrowUp} />,
+			itemName: "Max Temperature",
+			value: currentWeather.main.temp_max,
+			measureUnit: "°C",
+		},
+		{
+			iconName: <FontAwesomeIcon icon={faTemperatureArrowDown} />,
+			itemName: "Min Temperature",
+			value: currentWeather.main.temp_min,
+			measureUnit: "°C",
+		},
+		{
+			iconName: <FontAwesomeIcon icon={faDroplet} />,
+			itemName: "Humidity",
+			value: currentWeather.main.humidity,
+			measureUnit: "%",
+		},
+		{
+			iconName: <FontAwesomeIcon icon={faCircleUp} />,
+			itemName: "Sunrise",
+			value: currentWeather.sys.sunrise,
+			measureUnit: "h",
+		},
+		{
+			iconName: <FontAwesomeIcon icon={faCircleDown} />,
+			itemName: "Sunrise",
+			value: currentWeather.sys.sunset,
+			measureUnit: "h",
+		},
+		{
+			iconName: <FontAwesomeIcon icon={faEye} />,
+			itemName: "Visibility",
+			value: currentWeather.visibility,
+			measureUnit: "km",
+		},
+		{
+			iconName: <FontAwesomeIcon icon={faCloud} />,
+			itemName: "Pressure",
+			value: currentWeather.main.pressure,
+			measureUnit: "hpa",
+		},
+	];
+
 	return (
 		<div className="wa-container wa-cards">
 			<span className="wa-title">Today's Highlights</span>
 			<div className="wa-cards-wrapper">
-				<div className="wa-card-wrapper">
-					<h2 className="heading">Wind</h2>
-					<p className="wa-temp">
-						{currentWeather.wind.speed}
-						<span className="wa-temp-sign">km/h</span>
-					</p>
-				</div>
-				<div className="wa-card-wrapper">
-					<h2 className="heading">Temperature Max</h2>
-					<p className="wa-temp">
-						{currentWeather.main.temp_min}
-						<span className="wa-temp-sign">°C</span>
-					</p>
-				</div>
-				<div className="wa-card-wrapper">
-					<h2 className="heading">Temperature Min</h2>
-					<p className="wa-temp">
-						{currentWeather.main.temp_max}
-						<span className="wa-temp-sign">°C</span>
-					</p>
-				</div>
-				<div className="wa-card-wrapper">
-					<h2 className="heading">Humidity</h2>
-					<p className="wa-temp">
-						{currentWeather.main.humidity}
-						<span className="wa-temp-sign">%</span>
-					</p>
-				</div>
-				<div className="wa-card-wrapper">
-					<h2 className="heading">Sunrise</h2>
-					<p className="wa-temp">
-						7:20
-						{/* {currentWeather.sys.sunrise} */}
-						<span className="wa-temp-sign">h</span>
-					</p>
-				</div>
-				<div className="wa-card-wrapper">
-					<h2 className="heading">Sunset</h2>
-					<p className="wa-temp">
-						21:34
-						{/* {currentWeather.sys.sunset} */}
-						<span className="wa-temp-sign">h</span>
-					</p>
-				</div>
-				<div className="wa-card-wrapper">
-					<h2 className="heading">Visibility</h2>
-					<p className="wa-temp">
-						{currentWeather.visibility}
-						<span className="wa-temp-sign">h</span>
-					</p>
-				</div>
-				<div className="wa-card-wrapper">
-					<h2 className="heading">Pressure</h2>
-					<p className="wa-temp">
-						{currentWeather.main.pressure}
-						<span className="wa-temp-sign">h</span>
-					</p>
-				</div>
+				{weatherArray.map((weatherItem) => (
+					<CardItem
+						icon={weatherItem.iconName}
+						item={weatherItem.itemName}
+						value={weatherItem.value}
+						mesure={weatherItem.measureUnit}
+					/>
+				))}
 			</div>
 		</div>
 	);

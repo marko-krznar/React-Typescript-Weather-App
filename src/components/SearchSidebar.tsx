@@ -29,9 +29,9 @@ function Search() {
 						alt={currentWeather.weather[0].description}
 					/>
 				</div>
-				<p className="wa-temp">
+				<p className="wa-value">
 					{currentWeather.main.temp.toFixed(0)}
-					<span className="wa-temp-sign">°C</span>
+					<span className="wa-mesure-sign">°C</span>
 				</p>
 				<p>{currentWeather.weather[0].main}</p>
 			</div>
