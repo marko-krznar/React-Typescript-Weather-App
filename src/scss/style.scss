@@ -1,10 +1,11 @@
 @import "./reset";
 @import "./theme";
 @import "./text";
+
 @import "./components/search-form";
+@import "./components/divider";
 
 .wa-wrapper {
-	height: 100vh;
 	background-color: $gray-light-1;
 	display: flex;
 }
@@ -14,8 +15,25 @@
 }
 
 .wa-search-wrapper {
-	min-width: 400px;
+	width: 440px;
 	background-color: $white;
+	display: flex;
+	flex-direction: column;
+	gap: 48px;
+}
+
+.wa-weather-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+}
+
+.wa-location {
+	display: flex;
+	align-items: center;
+	gap: 12px;
 }
 
 .wa-cards {
@@ -48,11 +66,17 @@
 	display: flex;
 	align-items: center;
 	position: relative;
+	flex-grow: 1;
 
 	input {
 		font-size: 1rem;
-		padding: 0.5rem 2.5rem 0.5rem 2rem;
+		color: $gray-medium-1;
+		padding: 12px 2.5rem 12px 2.5rem;
 		flex-grow: 1;
+		background-color: $gray-light-1;
+		border-color: $gray-light-1;
+		border-style: solid;
+		border-radius: 1rem 0 0 1rem;
 	}
 
 	> .svg-inline--fa,
@@ -61,7 +85,8 @@
 	}
 
 	> .svg-inline--fa {
-		left: 8px;
+		left: 1rem;
+		color: $gray-medium-1;
 	}
 
 	> button {
@@ -71,9 +96,19 @@
 		background: transparent;
 		border: transparent;
 		padding: 0 1rem;
+		color: $gray-medium-1;
 	}
 }
 
 .wa-button {
-	padding: 0 1rem;
+	padding: 12px 1rem;
+	background-color: $gray-medium-1;
+	border-color: $gray-medium-1;
+	color: $white;
+	border-style: solid;
+	border-radius: 0 1rem 1rem 0;
+}
+
+.wa-app-info h1.heading {
+	text-align: center;
 }

@@ -24,6 +24,16 @@ body {
 	font-size: 32px;
 }
 
+h1.heading {
+	font-size: 1.5rem;
+	margin-bottom: 24px;
+}
+
 h2.heading {
 	color: $gray-medium-1;
+}
+
+.wa-text {
+	color: $gray-medium-1;
+	margin-bottom: 1rem;
 }
