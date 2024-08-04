@@ -12,6 +12,7 @@
 		display: flex;
 		max-width: 1920px;
 		margin: auto;
+		min-height: 100vh;
 	}
 }
 
@@ -41,11 +42,8 @@
 	gap: 12px;
 }
 
-.wa-cards {
+.wa-info-card-wrapper {
 	flex-grow: 1;
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
 }
 
 .wa-cards-wrapper {
@@ -61,6 +59,7 @@
 	background-color: $white;
 	border-radius: 1rem;
 	padding: 1rem;
+	overflow: hidden;
 }
 
 .wa-search-form-wrapper {
@@ -114,6 +113,46 @@
 	border-radius: 0 1rem 1rem 0;
 }
 
-.wa-app-info h1.heading {
-	text-align: center;
+.wa-app-info {
+	margin-bottom: 48px;
+
+	h1.heading {
+		text-align: center;
+	}
+}
+
+.wa-date-sun-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	.wa-date-wrapper .wa-text {
+		font-size: 1rem;
+	}
+
+	.wa-date-wrapper .wa-title {
+		margin-bottom: 8px;
+	}
+
+	.wa-sun-wrapper {
+		.heading {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 12px;
+		}
+
+		.svg-inline--fa {
+			height: 24px;
+		}
+
+		.wa-value {
+			font-size: 32px;
+			gap: 4px;
+
+			.wa-mesure-sign {
+				font-size: 20px;
+			}
+		}
+	}
 }

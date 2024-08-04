@@ -5,7 +5,11 @@ Info for handling icons
 - https://fontawesome.com/search?q=close&o=r&m=free
 */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import {
+	faLocationDot,
+	faCircleUp,
+	faCircleDown,
+} from "@fortawesome/free-solid-svg-icons";
 
 import { currentWeather } from "../App";
 import SearchForm from "./SearchForm";
@@ -36,22 +40,30 @@ function Search() {
 				<p>{currentWeather.weather[0].main}</p>
 			</div>
 			<Divider />
-			<div className="wa-app-info">
-				<h1 className="heading">
-					Welcome to the Weather App test project!
-				</h1>
-				<p className="wa-text">
-					This application utilizes the OpenWeather API to fetch and
-					display real-time weather data for any city.
-				</p>
-				<p className="wa-text">
-					Simply enter a city name to see the current temperature,
-					humidity, and weather conditions.
-				</p>
-				<p className="wa-text">
-					The app is built with React and TypeScript, ensuring a
-					robust and responsive user experience.
-				</p>
+			<div className="wa-date-sun-wrapper">
+				<div className="wa-date-wrapper">
+					<span className="wa-title">
+						Monday, <span className="wa-text">15.05.</span>
+					</span>
+				</div>
+				<div className="wa-sun-wrapper">
+					<h2 className="heading">
+						<FontAwesomeIcon icon={faCircleUp} /> Sunrise
+					</h2>
+					<p className="wa-value">
+						05:30
+						<span className="wa-mesure-sign">h</span>
+					</p>
+				</div>
+				<div className="wa-sun-wrapper">
+					<h2 className="heading">
+						<FontAwesomeIcon icon={faCircleDown} /> Sunset
+					</h2>
+					<p className="wa-value">
+						21:14
+						<span className="wa-mesure-sign">h</span>
+					</p>
+				</div>
 			</div>
 		</div>
 	);

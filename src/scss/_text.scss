@@ -20,14 +20,12 @@ body {
 }
 
 .wa-title {
+	display: block;
 	font-size: 32px;
-}
-
-h1.heading {
-	font-size: 1.5rem;
 	margin-bottom: 24px;
 }
 
+h1.heading,
 h2.heading {
 	color: $gray-medium-1;
 }

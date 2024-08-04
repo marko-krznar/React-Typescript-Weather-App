@@ -4,8 +4,6 @@ import {
 	faTemperatureArrowUp,
 	faTemperatureArrowDown,
 	faDroplet,
-	faCircleUp,
-	faCircleDown,
 	faEye,
 	faCloud,
 } from "@fortawesome/free-solid-svg-icons";
@@ -40,18 +38,6 @@ function Cards() {
 			measureUnit: "%",
 		},
 		{
-			iconName: <FontAwesomeIcon icon={faCircleUp} />,
-			itemName: "Sunrise",
-			value: currentWeather.sys.sunrise,
-			measureUnit: "h",
-		},
-		{
-			iconName: <FontAwesomeIcon icon={faCircleDown} />,
-			itemName: "Sunrise",
-			value: currentWeather.sys.sunset,
-			measureUnit: "h",
-		},
-		{
 			iconName: <FontAwesomeIcon icon={faEye} />,
 			itemName: "Visibility",
 			value: currentWeather.visibility,
@@ -66,17 +52,37 @@ function Cards() {
 	];
 
 	return (
-		<div className="wa-container wa-cards">
-			<span className="wa-title">Today's Highlights</span>
-			<div className="wa-cards-wrapper">
-				{weatherArray.map((weatherItem) => (
-					<CardItem
-						icon={weatherItem.iconName}
-						item={weatherItem.itemName}
-						value={weatherItem.value}
-						mesure={weatherItem.measureUnit}
-					/>
-				))}
+		<div className="wa-container wa-info-card-wrapper">
+			<div className="wa-app-info">
+				<h1 className="wa-title">
+					Welcome to the Weather App test project!
+				</h1>
+				<p className="wa-text">
+					This application utilizes the OpenWeather API to fetch and
+					display real-time weather data for any city.
+				</p>
+				<p className="wa-text">
+					Simply enter a city name to see the current temperature,
+					humidity, and weather conditions.
+				</p>
+				<p className="wa-text">
+					The app is built with React and TypeScript, ensuring a
+					robust and responsive user experience.
+				</p>
+			</div>
+			<div className="wa-cards">
+				<span className="wa-title">Today's Highlights</span>
+				<div className="wa-cards-wrapper">
+					{weatherArray.map((weatherItem) => (
+						<CardItem
+							key={weatherItem.itemName}
+							icon={weatherItem.iconName}
+							item={weatherItem.itemName}
+							value={weatherItem.value}
+							mesure={weatherItem.measureUnit}
+						/>
+					))}
+				</div>
 			</div>
 		</div>
 	);
