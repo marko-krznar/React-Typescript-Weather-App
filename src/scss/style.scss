@@ -5,6 +5,7 @@
 @import "./components/search-form";
 @import "./components/divider";
 @import "./components/intro-section";
+@import "./components/weather-highlight-card";
 
 .wa-app-wrapper {
 	background-color: $gray-light-1;
@@ -51,16 +52,6 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1rem;
-}
-
-.wa-card-wrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
-	background-color: $white;
-	border-radius: 1rem;
-	padding: 1rem;
-	overflow: hidden;
 }
 
 .wa-date-sun-wrapper {

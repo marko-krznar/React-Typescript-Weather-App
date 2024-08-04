@@ -5,7 +5,7 @@ interface CardProps {
 	mesure: string;
 }
 
-function CardItem({ icon, item, value, mesure }: CardProps) {
+function WeatherHighlightCard({ icon, item, value, mesure }: CardProps) {
 	return (
 		<div className="wa-card-wrapper">
 			<h2 className="heading">
@@ -19,4 +19,4 @@ function CardItem({ icon, item, value, mesure }: CardProps) {
 	);
 }
 
-export default CardItem;
+export default WeatherHighlightCard;
