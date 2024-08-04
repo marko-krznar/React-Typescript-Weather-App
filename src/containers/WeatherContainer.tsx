@@ -52,7 +52,7 @@ function Cards() {
 	];
 
 	return (
-		<div className="wa-container wa-info-card-wrapper">
+		<div className="wa-container wa-highlights-container">
 			<div className="wa-app-info">
 				<h1 className="wa-title">
 					Welcome to the Weather App test project!
