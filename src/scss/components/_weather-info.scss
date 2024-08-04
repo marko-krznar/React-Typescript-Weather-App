@@ -1,0 +1,13 @@
+.wa-weather-info {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+
+	.wa-location {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+}

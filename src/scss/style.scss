@@ -7,6 +7,7 @@
 @import "./components/intro-section";
 @import "./components/weather-highlight-card";
 @import "./components/weather_highlights";
+@import "./components/weather-info";
 
 .wa-app-wrapper {
 	background-color: $gray-light-1;
@@ -29,20 +30,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 48px;
-}
-
-.wa-weather-info {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 1rem;
-}
-
-.wa-location {
-	display: flex;
-	align-items: center;
-	gap: 12px;
 }
 
 .wa-highlights-container {
