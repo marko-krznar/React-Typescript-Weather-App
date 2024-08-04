@@ -1,6 +1,6 @@
 function IntroSection() {
 	return (
-		<div className="wa-app-info">
+		<div className="wa-intro-section">
 			<h1 className="wa-title">
 				Welcome to the Weather App test project!
 			</h1>

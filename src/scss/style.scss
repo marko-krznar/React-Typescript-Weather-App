@@ -4,6 +4,7 @@
 
 @import "./components/search-form";
 @import "./components/divider";
+@import "./components/intro-section";
 
 .wa-app-wrapper {
 	background-color: $gray-light-1;
@@ -111,14 +112,6 @@
 	color: $white;
 	border-style: solid;
 	border-radius: 0 1rem 1rem 0;
-}
-
-.wa-app-info {
-	margin-bottom: 48px;
-
-	h1.heading {
-		text-align: center;
-	}
 }
 
 .wa-date-sun-wrapper {
