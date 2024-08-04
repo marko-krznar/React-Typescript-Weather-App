@@ -9,7 +9,7 @@ import { faCircleUp, faCircleDown } from "@fortawesome/free-solid-svg-icons";
 
 function WeatherTimeline() {
 	return (
-		<div className="wa-date-sun-wrapper">
+		<div className="wa-weather-timeline-wrapper">
 			<div className="wa-date-wrapper">
 				<span className="wa-title">
 					Monday, <span className="wa-text">15.05.</span>

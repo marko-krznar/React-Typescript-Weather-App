@@ -8,6 +8,7 @@
 @import "./components/weather-highlight-card";
 @import "./components/weather_highlights";
 @import "./components/weather-info";
+@import "./components/weather-timeline";
 
 .wa-app-wrapper {
 	background-color: $gray-light-1;
@@ -34,40 +35,4 @@
 
 .wa-highlights-container {
 	flex-grow: 1;
-}
-
-.wa-date-sun-wrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
-
-	.wa-date-wrapper .wa-text {
-		font-size: 1rem;
-	}
-
-	.wa-date-wrapper .wa-title {
-		margin-bottom: 8px;
-	}
-
-	.wa-sun-wrapper {
-		.heading {
-			display: flex;
-			align-items: center;
-			gap: 12px;
-			margin-bottom: 12px;
-		}
-
-		.svg-inline--fa {
-			height: 24px;
-		}
-
-		.wa-value {
-			font-size: 32px;
-			gap: 4px;
-
-			.wa-mesure-sign {
-				font-size: 20px;
-			}
-		}
-	}
 }
