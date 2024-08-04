@@ -12,8 +12,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { currentWeather } from "../App";
-import SearchForm from "./SearchForm";
-import Divider from "./Divider";
+import SearchForm from "../components/SearchForm";
+import Divider from "../components/Divider";
 
 function Search() {
 	console.log("currentWeather", currentWeather);

@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { currentWeather } from "../App";
-import CardItem from "./CardItem";
+import CardItem from "../components/CardItem";
 
 function Cards() {
 	const weatherArray = [

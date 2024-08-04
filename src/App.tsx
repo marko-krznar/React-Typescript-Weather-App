@@ -1,5 +1,5 @@
-import Cards from "./components/Cards";
-import SearchSidebar from "./components/SearchSidebar";
+import WeatherContainer from "./containers/WeatherContainer";
+import SearchContainer from "./containers/SearchContainer";
 import "./scss/style.scss";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -55,8 +55,8 @@ function App() {
 	return (
 		<div className="wa-app-wrapper">
 			<div className="wa-app-container">
-				<SearchSidebar />
-				<Cards />
+				<SearchContainer />
+				<WeatherContainer />
 			</div>
 		</div>
 	);
