@@ -53,9 +53,11 @@ function App() {
 	console.log(currentWeather);
 
 	return (
-		<div className="wa-wrapper">
-			<SearchSidebar />
-			<Cards />
+		<div className="wa-app-wrapper">
+			<div className="wa-app-container">
+				<SearchSidebar />
+				<Cards />
+			</div>
 		</div>
 	);
 }

@@ -5,9 +5,14 @@
 @import "./components/search-form";
 @import "./components/divider";
 
-.wa-wrapper {
+.wa-app-wrapper {
 	background-color: $gray-light-1;
-	display: flex;
+
+	.wa-app-container {
+		display: flex;
+		max-width: 1920px;
+		margin: auto;
+	}
 }
 
 .wa-container {
