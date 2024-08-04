@@ -6,6 +6,7 @@
 @import "./components/divider";
 @import "./components/intro-section";
 @import "./components/weather-highlight-card";
+@import "./components/weather_highlights";
 
 .wa-app-wrapper {
 	background-color: $gray-light-1;
@@ -46,12 +47,6 @@
 
 .wa-highlights-container {
 	flex-grow: 1;
-}
-
-.wa-cards-wrapper {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem;
 }
 
 .wa-date-sun-wrapper {
