@@ -9,7 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import { currentWeather } from "../App";
-import CardItem from "../components/CardItem";
+import WeatherHighlightCard from "./WeatherHighlightCard";
 
 function WeatherHighlights() {
 	const weatherArray = [
@@ -56,7 +56,7 @@ function WeatherHighlights() {
 			<span className="wa-title">Today's Highlights</span>
 			<div className="wa-cards-wrapper">
 				{weatherArray.map((weatherItem) => (
-					<CardItem
+					<WeatherHighlightCard
 						key={weatherItem.itemName}
 						icon={weatherItem.iconName}
 						item={weatherItem.itemName}
