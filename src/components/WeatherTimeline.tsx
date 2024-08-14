@@ -6,8 +6,13 @@ Info for handling icons
 */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUp, faCircleDown } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { RootStore } from "../state/store";
+import { formatTimestampToHours } from "../utils/dateUtils";
 
 function WeatherTimeline() {
+	const weatherState = useSelector((state: RootStore) => state.weather);
+
 	return (
 		<div className="wa-weather-timeline-wrapper">
 			<div className="wa-date-wrapper">
@@ -19,19 +24,23 @@ function WeatherTimeline() {
 				<h2 className="heading">
 					<FontAwesomeIcon icon={faCircleUp} /> Sunrise
 				</h2>
-				<p className="wa-value">
-					05:30
-					<span className="wa-mesure-sign">h</span>
-				</p>
+				{weatherState.data?.sys.sunrise && (
+					<p className="wa-value">
+						{formatTimestampToHours(weatherState.data.sys.sunrise)}
+						<span className="wa-mesure-sign">h</span>
+					</p>
+				)}
 			</div>
 			<div className="wa-sun-wrapper">
 				<h2 className="heading">
 					<FontAwesomeIcon icon={faCircleDown} /> Sunset
 				</h2>
-				<p className="wa-value">
-					21:14
-					<span className="wa-mesure-sign">h</span>
-				</p>
+				{weatherState.data?.sys.sunset && (
+					<p className="wa-value">
+						{formatTimestampToHours(weatherState.data?.sys.sunset)}
+						<span className="wa-mesure-sign">h</span>
+					</p>
+				)}
 			</div>
 		</div>
 	);
