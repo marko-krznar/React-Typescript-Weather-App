@@ -1,7 +1,7 @@
 interface CardProps {
 	icon: React.ReactNode;
 	item: string;
-	value: string | number;
+	value: string | number | undefined;
 	mesure: string;
 }
 

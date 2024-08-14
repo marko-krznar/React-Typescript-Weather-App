@@ -18,37 +18,37 @@ function WeatherHighlights() {
 		{
 			iconName: <FontAwesomeIcon icon={faWind} />,
 			itemName: "Wind",
-			value: weatherState.wind.speed,
+			value: weatherState?.data?.wind.speed,
 			measureUnit: "km/h",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowUp} />,
 			itemName: "Max Temperature",
-			value: weatherState.main.temp_max,
+			value: weatherState?.data?.main.temp_max,
 			measureUnit: "°C",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowDown} />,
 			itemName: "Min Temperature",
-			value: weatherState.main.temp_min,
+			value: weatherState?.data?.main.temp_min,
 			measureUnit: "°C",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faDroplet} />,
 			itemName: "Humidity",
-			value: weatherState.main.humidity,
+			value: weatherState?.data?.main.humidity,
 			measureUnit: "%",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faEye} />,
 			itemName: "Visibility",
-			value: weatherState.visibility,
+			value: weatherState?.data?.visibility,
 			measureUnit: "km",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faCloud} />,
 			itemName: "Pressure",
-			value: weatherState.main.pressure,
+			value: weatherState?.data?.main.pressure,
 			measureUnit: "hpa",
 		},
 	];
