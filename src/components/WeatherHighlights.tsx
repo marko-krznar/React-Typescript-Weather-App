@@ -7,46 +7,48 @@ import {
 	faEye,
 	faCloud,
 } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
+import { RootStore } from "../state/store";
 
-import { currentWeather } from "../App";
 import WeatherHighlightCard from "./WeatherHighlightCard";
 
 function WeatherHighlights() {
+	const weatherState = useSelector((state: RootStore) => state.weather);
 	const weatherArray = [
 		{
 			iconName: <FontAwesomeIcon icon={faWind} />,
 			itemName: "Wind",
-			value: currentWeather.wind.speed,
+			value: weatherState.wind.speed,
 			measureUnit: "km/h",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowUp} />,
 			itemName: "Max Temperature",
-			value: currentWeather.main.temp_max,
+			value: weatherState.main.temp_max,
 			measureUnit: "°C",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowDown} />,
 			itemName: "Min Temperature",
-			value: currentWeather.main.temp_min,
+			value: weatherState.main.temp_min,
 			measureUnit: "°C",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faDroplet} />,
 			itemName: "Humidity",
-			value: currentWeather.main.humidity,
+			value: weatherState.main.humidity,
 			measureUnit: "%",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faEye} />,
 			itemName: "Visibility",
-			value: currentWeather.visibility,
+			value: weatherState.visibility,
 			measureUnit: "km",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faCloud} />,
 			itemName: "Pressure",
-			value: currentWeather.main.pressure,
+			value: weatherState.main.pressure,
 			measureUnit: "hpa",
 		},
 	];
