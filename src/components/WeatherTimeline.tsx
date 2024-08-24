@@ -13,12 +13,36 @@ import { formatTimestampToHours } from "../utils/dateUtils";
 function WeatherTimeline() {
 	const weatherState = useSelector((state: RootStore) => state.weather);
 
+	// Convert the Unix timestamp to a datetime (Day, DD.MM.)
+	const formatToDate = (unixTimestamp: number) => {
+		const date = new Date(unixTimestamp * 1000);
+
+		const dayName: string = date.toLocaleDateString("en-GB", {
+			weekday: "long",
+		});
+
+		const day: string = date.toLocaleDateString("en-GB", {
+			day: "2-digit",
+		});
+
+		const month: string = date.toLocaleDateString("en-GB", {
+			month: "2-digit",
+		});
+
+		return (
+			<span className="wa-title">
+				{dayName},{" "}
+				<span className="wa-text">
+					{day}.{month}.
+				</span>
+			</span>
+		);
+	};
+
 	return (
 		<div className="wa-weather-timeline-wrapper">
 			<div className="wa-date-wrapper">
-				<span className="wa-title">
-					Monday, <span className="wa-text">15.05.</span>
-				</span>
+				{weatherState?.data?.dt && formatToDate(weatherState.data.dt)}
 			</div>
 			<div className="wa-sun-wrapper">
 				<h2 className="heading">
