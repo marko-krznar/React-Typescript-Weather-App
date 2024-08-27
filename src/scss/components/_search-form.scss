@@ -1,0 +1,62 @@
+.wa-search-form-wrapper {
+	display: flex;
+
+	.wa-input-wrapper {
+		display: flex;
+		align-items: center;
+		position: relative;
+		flex-grow: 1;
+
+		input {
+			font-size: 1rem;
+			color: $gray-medium-1;
+			padding: 12px 2.5rem 12px 2.5rem;
+			flex-grow: 1;
+			background-color: $gray-light-1;
+			border-color: $gray-light-1;
+			border-style: solid;
+			border-radius: 1rem 0 0 1rem;
+		}
+
+		> .svg-inline--fa,
+		> button {
+			position: absolute;
+		}
+
+		> .svg-inline--fa {
+			left: 1rem;
+			color: $gray-medium-1;
+		}
+
+		> button {
+			right: 0;
+			height: 100%;
+			font-size: 1rem;
+			background: transparent;
+			border: transparent;
+			padding: 0 1rem;
+			color: $gray-medium-1;
+		}
+	}
+
+	.wa-button {
+		padding: 12px 1rem;
+		background-color: $gray-medium-1;
+		border-color: $gray-medium-1;
+		color: $white;
+		border-style: solid;
+		border-radius: 0 1rem 1rem 0;
+	}
+}
+
+@media only screen and (max-width: $small-mobile) {
+	.wa-search-form-wrapper {
+		flex-direction: column;
+		gap: 16px;
+
+		.wa-input-wrapper input,
+		.wa-button {
+			border-radius: 1rem;
+		}
+	}
+}

@@ -1,0 +1,9 @@
+.wa-card-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	background-color: $white;
+	border-radius: 1rem;
+	padding: 1rem;
+	overflow: hidden;
+}

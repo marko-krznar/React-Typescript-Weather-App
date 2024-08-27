@@ -1,0 +1,50 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { RootStore, AppDispatch } from "../state/store";
+import { useEffect } from "react";
+import { fetchWeatherByCity } from "../state/weather/weatherSlice";
+
+function WeatherInfo() {
+	const weatherState = useSelector((state: RootStore) => state.weather);
+	const dispatch = useDispatch<AppDispatch>();
+	const weatherData = weatherState.data;
+
+	useEffect(() => {
+		dispatch(fetchWeatherByCity("Zagreb"));
+	}, [dispatch]);
+
+	if (weatherState.status === "loading") {
+		return <div>Loading...</div>;
+	}
+
+	if (weatherState.status === "failed") {
+		return <div>Error: {weatherState.error}</div>;
+	}
+
+	if (!weatherData) {
+		return <div>No weather data available.</div>;
+	}
+
+	return (
+		<div className="wa-weather-info">
+			<div className="wa-location">
+				<FontAwesomeIcon icon={faLocationDot} />
+				<span>{`${weatherState?.data?.name}, ${weatherState?.data?.sys.country}`}</span>
+			</div>
+			<div>
+				<img
+					src={`https://openweathermap.org/img/wn/${weatherState?.data?.weather[0].icon}@4x.png`}
+					alt={weatherState?.data?.weather[0].description}
+				/>
+			</div>
+			<p className="wa-value">
+				{weatherState?.data?.main.temp.toFixed(0)}
+				<span className="wa-mesure-sign">°C</span>
+			</p>
+			<p>{weatherState?.data?.weather[0].main}</p>
+		</div>
+	);
+}
+
+export default WeatherInfo;

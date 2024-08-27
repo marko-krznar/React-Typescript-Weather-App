@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap");
+
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+body {
+	font-family: "Nunito", sans-serif;
+}
+
+.wa-value {
+	font-family: "Inter", sans-serif;
+	font-size: 64px;
+	display: flex;
+	align-items: flex-start;
+
+	.wa-mesure-sign {
+		font-size: 32px;
+	}
+}
+
+.wa-title {
+	display: block;
+	font-size: 32px;
+	margin-bottom: 24px;
+}
+
+h1.heading,
+h2.heading {
+	color: $gray-medium-1;
+}
+
+.wa-text {
+	color: $gray-medium-1;
+	margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: $large-mobile) {
+	.wa-title {
+		font-size: 28px;
+	}
+
+	.wa-value {
+		font-size: 40px;
+
+		.wa-mesure-sign {
+			font-size: 18px;
+		}
+	}
+}

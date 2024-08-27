@@ -1,0 +1,35 @@
+.wa-weather-timeline-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	.wa-date-wrapper .wa-text {
+		font-size: 1rem;
+	}
+
+	.wa-date-wrapper .wa-title {
+		margin-bottom: 8px;
+	}
+
+	.wa-sun-wrapper {
+		.heading {
+			display: flex;
+			align-items: center;
+			gap: 12px;
+			margin-bottom: 12px;
+		}
+
+		.svg-inline--fa {
+			height: 24px;
+		}
+
+		.wa-value {
+			font-size: 32px;
+			gap: 4px;
+
+			.wa-mesure-sign {
+				font-size: 20px;
+			}
+		}
+	}
+}
