@@ -24,3 +24,39 @@
 		flex-grow: 1;
 	}
 }
+
+@media only screen and (max-width: $medium-laptop) {
+	.wa-container {
+		padding: 48px 32px;
+	}
+}
+
+@media only screen and (max-width: $large-tablet) {
+	.wa-app-wrapper .wa-app-container {
+		flex-direction: column-reverse;
+	}
+
+	.wa-container.wa-search-container {
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: $large-mobile) {
+	.wa-container {
+		padding: 32px;
+	}
+
+	.wa-container.wa-search-container {
+		gap: 32px;
+	}
+}
+
+@media only screen and (max-width: $small-mobile) {
+	.wa-container {
+		padding: 24px;
+	}
+
+	.wa-container.wa-search-container {
+		gap: 24px;
+	}
+}

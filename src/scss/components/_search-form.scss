@@ -48,3 +48,15 @@
 		border-radius: 0 1rem 1rem 0;
 	}
 }
+
+@media only screen and (max-width: $small-mobile) {
+	.wa-search-form-wrapper {
+		flex-direction: column;
+		gap: 16px;
+
+		.wa-input-wrapper input,
+		.wa-button {
+			border-radius: 1rem;
+		}
+	}
+}
