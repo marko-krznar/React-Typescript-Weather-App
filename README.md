@@ -17,7 +17,7 @@ This project was initialized with [Vite](https://vitejs.dev/).
 -   Using [OpenWeather API](https://openweathermap.org/api) to get the current weather
 -   Using [React Redux](https://react-redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) for managing state
 
-:point_right: [Check out the app](https://marko-krznar.github.io/React-Typescript-Weather-App/)
+<!-- :point_right: [Check out the app](https://marko-krznar.github.io/React-Typescript-Weather-App/) -->
 
 <!--
 # React + TypeScript + Vite
