@@ -1,3 +1,25 @@
+# Current weather
+
+This project was initialized with [Vite](https://vitejs.dev/).
+
+## Features
+
+-   current forecast for Zagreb
+-   search forecast for any city
+
+## Technologies
+
+-   [React](https://react.dev/)
+-   [Typescript](https://www.typescriptlang.org/)
+
+## Details
+
+-   Using [OpenWeather API](https://openweathermap.org/api) to get the current weather
+-   Using [React Redux](https://react-redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) for managing state
+
+:point_right: [Check out the app](https://marko-krznar.github.io/React-Typescript-Weather-App/)
+
+<!--
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -28,3 +50,4 @@ export default {
 - Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
 - Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
 - Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-->
