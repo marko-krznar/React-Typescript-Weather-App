@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootStore } from "../state/store";
 import { fetchFiveDayForecastByCity } from "../state/weather/fiveDayForecastSlice";
 
+import TableRow from "./table/TableRow";
+
 function FiveDayForecast() {
 	const dispatch = useDispatch<AppDispatch>();
 	const fiveDayForecastState = useSelector(
@@ -74,11 +76,9 @@ function FiveDayForecast() {
 						<div className="wa-column">15:00</div>
 						<div className="wa-column">18:00</div>
 						<div className="wa-column">21:00</div>
-						{/* <div className="wa-column wa-column-temp">
-						Temperature (low/high)
-					</div>
-					<div className="wa-column">Rain</div>
-					<div className="wa-column">Wind</div> */}
+						{/* <div className="wa-column wa-column-temp">Temperature (low/high)</div>
+						<div className="wa-column">Rain</div>
+						<div className="wa-column">Wind</div> */}
 					</div>
 				</div>
 				<div className="wa-table-body-wrapper">
@@ -97,31 +97,12 @@ function FiveDayForecast() {
 							);
 
 							return (
-								<div
-									key={item.date + index}
-									className="wa-table-row-wrapper"
-								>
-									<div className="wa-column wa-column-today">
-										{formatDate(item.date)}
-									</div>
-									<div className="wa-table-columns-wrapper">
-										{renderPlaceholders}
-										{item.data.map((hourWeather: any) => {
-											return (
-												<div className="wa-column wa-img-wrapper">
-													<img
-														src={`https://openweathermap.org/img/wn/${hourWeather.weather[0].icon}@4x.png`}
-														alt={
-															hourWeather
-																.weather[0]
-																.description
-														}
-													/>
-												</div>
-											);
-										})}
-									</div>
-								</div>
+								<TableRow
+									key={index}
+									item={item}
+									formatDate={formatDate}
+									renderPlaceholders={renderPlaceholders}
+								/>
 							);
 						}
 
@@ -139,63 +120,21 @@ function FiveDayForecast() {
 							);
 
 							return (
-								<div
-									key={item.date + index}
-									className="wa-table-row-wrapper"
-								>
-									<div className="wa-column wa-column-today">
-										{formatDate(item.date)}
-									</div>
-									<div className="wa-table-columns-wrapper">
-										{item.data.map((hourWeather: any) => {
-											return (
-												<div className="wa-column wa-img-wrapper">
-													<img
-														src={`https://openweathermap.org/img/wn/${hourWeather.weather[0].icon}@4x.png`}
-														alt={
-															hourWeather
-																.weather[0]
-																.description
-														}
-													/>
-												</div>
-											);
-										})}
-										{renderPlaceholders}
-									</div>
-								</div>
+								<TableRow
+									key={index}
+									item={item}
+									formatDate={formatDate}
+									renderPlaceholders={renderPlaceholders}
+								/>
 							);
 						}
 
 						return (
-							<div
-								key={item.date + index}
-								className="wa-table-row-wrapper"
-							>
-								<div className="wa-column wa-column-today">
-									{formatDate(item.date)}
-								</div>
-								<div className="wa-table-columns-wrapper">
-									{item.data.map((hourWeather: any) => {
-										return (
-											<div className="wa-column wa-img-wrapper">
-												<img
-													src={`https://openweathermap.org/img/wn/${hourWeather.weather[0].icon}@4x.png`}
-													alt={
-														hourWeather.weather[0]
-															.description
-													}
-												/>
-											</div>
-										);
-									})}
-								</div>
-								{/* <div className="wa-column wa-column-temp">
-									27°C / 32°C
-								</div>
-								<div className="wa-column">3.9mm</div>
-								<div className="wa-column">1m/s</div> */}
-							</div>
+							<TableRow
+								key={index}
+								item={item}
+								formatDate={formatDate}
+							/>
 						);
 					})}
 				</div>
