@@ -22,6 +22,8 @@
 
 	&.wa-highlights-container {
 		flex-grow: 1;
+		display: grid;
+		gap: 48px;
 	}
 }
 

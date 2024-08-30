@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootStore, AppDispatch } from "../state/store";
 import { useEffect } from "react";
 import { fetchWeatherByCity } from "../state/weather/weatherSlice";
+import { fetchFiveDayForecastByCity } from "../state/weather/fiveDayForecastSlice";
 
 function WeatherInfo() {
 	const weatherState = useSelector((state: RootStore) => state.weather);
@@ -12,6 +13,7 @@ function WeatherInfo() {
 
 	useEffect(() => {
 		dispatch(fetchWeatherByCity("Zagreb"));
+		dispatch(fetchFiveDayForecastByCity("Zagreb"));
 	}, [dispatch]);
 
 	if (weatherState.status === "loading") {

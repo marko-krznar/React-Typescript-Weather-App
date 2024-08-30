@@ -2,9 +2,11 @@ import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
+
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../state/store";
 import { fetchWeatherByCity } from "../state/weather/weatherSlice";
+import { fetchFiveDayForecastByCity } from "../state/weather/fiveDayForecastSlice";
 
 function SearchForm() {
 	const [searchTerm, setSearchTerm] = useState("");
@@ -20,6 +22,7 @@ function SearchForm() {
 
 	const handleSearch = () => {
 		dispatch(fetchWeatherByCity(searchTerm));
+		dispatch(fetchFiveDayForecastByCity(searchTerm));
 	};
 
 	return (

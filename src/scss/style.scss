@@ -10,3 +10,55 @@
 @import "./components/weather_highlights";
 @import "./components/weather-info";
 @import "./components/weather-timeline";
+
+.wa-table {
+	background-color: #fff;
+	border-radius: 1rem;
+	padding: 1rem;
+
+	.wa-table-header-wrapper,
+	.wa-table-row-wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.wa-table-header-wrapper {
+		border-bottom: 2px solid #f6f6f8;
+		padding: 16px 0 32px;
+	}
+
+	.wa-table-row-wrapper {
+		align-items: center;
+		padding: 16px 0;
+		border-bottom: 2px solid #f6f6f8;
+
+		&:last-child {
+			padding: 16px 0 0;
+			border-bottom: none;
+		}
+	}
+
+	.wa-column {
+		width: 80px;
+		text-align: center;
+	}
+
+	.wa-placeholder,
+	.wa-column-today {
+		width: 120px;
+	}
+
+	.wa-column-temp {
+		width: 168px;
+	}
+
+	.wa-img-wrapper {
+		display: flex;
+		justify-content: center;
+
+		img {
+			width: 50px;
+			display: block;
+		}
+	}
+}
