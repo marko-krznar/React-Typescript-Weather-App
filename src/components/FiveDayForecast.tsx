@@ -18,17 +18,14 @@ function FiveDayForecast() {
 		dispatch(fetchFiveDayForecastByCity("Zagreb"));
 	}, [dispatch]);
 
-	// Assuming you have the fiveDayForecastState.data.list array
 	const weatherData: any = fiveDayForecastState.data?.list;
 
-	// Extract unique dates from weather data
 	const uniqueDates = [
 		...new Set(
 			weatherData?.map((entry: any) => entry.dt_txt.split(" ")[0])
 		),
 	];
 
-	// Group data by unique dates
 	const groupedDataByDate = uniqueDates.map((date) => {
 		return {
 			date,
