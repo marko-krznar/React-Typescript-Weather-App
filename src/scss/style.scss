@@ -16,8 +16,7 @@
 	border-radius: 1rem;
 	padding: 1rem;
 
-	.wa-table-header-wrapper,
-	.wa-table-row-wrapper {
+	.wa-table-header-wrapper {
 		display: flex;
 		justify-content: space-between;
 	}
@@ -28,6 +27,7 @@
 	}
 
 	.wa-table-row-wrapper {
+		display: flex;
 		align-items: center;
 		padding: 16px 0;
 		border-bottom: 2px solid #f6f6f8;
@@ -38,6 +38,12 @@
 		}
 	}
 
+	.wa-table-columns-wrapper {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+	}
+
 	.wa-column {
 		width: 80px;
 		text-align: center;
@@ -45,7 +51,7 @@
 
 	.wa-placeholder,
 	.wa-column-today {
-		width: 120px;
+		min-width: 160px;
 	}
 
 	.wa-column-temp {
