@@ -1,0 +1,69 @@
+.wa-five-day-forecast {
+	overflow: hidden;
+}
+
+.wa-table {
+	background-color: $white;
+	border-radius: 1rem;
+	padding: 1rem;
+	width: 100%;
+	overflow: auto;
+
+	.wa-table-header-wrapper {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 2px solid $gray-light-1;
+		padding: 16px 0 32px;
+		width: max-content;
+	}
+
+	.wa-table-row-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 16px 0;
+		border-bottom: 2px solid $gray-light-1;
+		width: max-content;
+
+		&:last-child {
+			padding: 16px 0 0;
+			border-bottom: none;
+		}
+	}
+
+	.wa-table-columns-wrapper {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.wa-column {
+		width: 80px;
+		text-align: center;
+
+		&.wa-column-placeholder {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: $gray-medium-1;
+		}
+	}
+
+	.wa-placeholder,
+	.wa-column-today {
+		min-width: 160px;
+	}
+
+	.wa-column-temp {
+		width: 168px;
+	}
+
+	.wa-img-wrapper {
+		display: flex;
+		justify-content: center;
+
+		img {
+			width: 50px;
+			display: block;
+		}
+	}
+}
