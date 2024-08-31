@@ -11,6 +11,7 @@ interface TableRowProps {
 	};
 	key: number;
 	placeholderNumber?: number;
+	placeholderFrontPosition?: boolean;
 }
 
 export interface HourWeatherProps {
@@ -21,7 +22,11 @@ export interface HourWeatherProps {
 	dt: number;
 }
 
-function TableRow({ item, placeholderNumber }: TableRowProps) {
+function TableRow({
+	item,
+	placeholderNumber,
+	placeholderFrontPosition,
+}: TableRowProps) {
 	const formatDate = (dateString: string) => {
 		const date = new Date(dateString);
 		const today = new Date();
@@ -56,7 +61,7 @@ function TableRow({ item, placeholderNumber }: TableRowProps) {
 				{formatDate(item.date)}
 			</div>
 			<div className="wa-table-columns-wrapper">
-				{renderPlaceholders}
+				{placeholderFrontPosition && renderPlaceholders}
 				{item.data.map((hourWeather: HourWeatherProps) => (
 					<div
 						key={hourWeather.dt}
@@ -68,6 +73,7 @@ function TableRow({ item, placeholderNumber }: TableRowProps) {
 						/>
 					</div>
 				))}
+				{!placeholderFrontPosition && renderPlaceholders}
 			</div>
 		</div>
 	);

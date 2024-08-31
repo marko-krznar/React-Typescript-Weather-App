@@ -15,13 +15,16 @@ function TableBody({ groupedDataByDate }: GroupedDataByDateProps) {
 		<div className="wa-table-body-wrapper">
 			{groupedDataByDate.map((item: ItemRowProps, index: number) => {
 				if (item.data.length < 8 && (index === 0 || index === 5)) {
-					const placeholderNumber: number = 8 - item.data.length;
+					const placeholderNumber = 8 - item.data.length;
+
+					const placeholderFrontPosition = index === 0 ? true : false;
 
 					return (
 						<TableRow
 							key={index}
 							item={item}
 							placeholderNumber={placeholderNumber}
+							placeholderFrontPosition={placeholderFrontPosition}
 						/>
 					);
 				}
