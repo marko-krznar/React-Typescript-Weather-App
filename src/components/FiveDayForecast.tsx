@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +6,10 @@ import { fetchFiveDayForecastByCity } from "../state/weather/fiveDayForecastSlic
 
 import TableHeader from "./table/TableHeader";
 import TableBody from "./table/TableBody";
+
+interface WeatherDataItemProps {
+	dt_txt: string;
+}
 
 function FiveDayForecast() {
 	const dispatch = useDispatch<AppDispatch>();
@@ -18,22 +21,23 @@ function FiveDayForecast() {
 		dispatch(fetchFiveDayForecastByCity("Zagreb"));
 	}, [dispatch]);
 
-	const weatherData: any = fiveDayForecastState.data?.list;
+	const weatherData = fiveDayForecastState.data?.list;
 
 	const uniqueDates = [
 		...new Set(
-			weatherData?.map((entry: any) => entry.dt_txt.split(" ")[0])
+			weatherData.map(
+				(weatherDataItem: WeatherDataItemProps) =>
+					weatherDataItem.dt_txt.split(" ")[0]
+			)
 		),
 	];
 
-	const groupedDataByDate = uniqueDates.map((date) => {
-		return {
-			date,
-			data: weatherData.filter((entry: any) =>
-				entry.dt_txt.includes(date)
-			),
-		};
-	});
+	const groupedDataByDate = uniqueDates.map((date) => ({
+		date: date,
+		data: weatherData.filter((weatherDataItem: WeatherDataItemProps) =>
+			weatherDataItem.dt_txt.includes(date)
+		),
+	}));
 
 	return (
 		<div className="wa-five-day-forecast">

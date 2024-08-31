@@ -1,3 +1,9 @@
+/* FUTURE add columns
+<div className="wa-column wa-column-temp">Temperature (low/high)</div>
+<div className="wa-column">Rain</div>
+<div className="wa-column">Wind</div>
+*/
+
 function TableHeader() {
 	return (
 		<div className="wa-table-header-wrapper">
@@ -11,9 +17,6 @@ function TableHeader() {
 				<div className="wa-column">15:00</div>
 				<div className="wa-column">18:00</div>
 				<div className="wa-column">21:00</div>
-				{/* <div className="wa-column wa-column-temp">Temperature (low/high)</div>
-						<div className="wa-column">Rain</div>
-						<div className="wa-column">Wind</div> */}
 			</div>
 		</div>
 	);

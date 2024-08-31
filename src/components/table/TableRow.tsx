@@ -13,7 +13,7 @@ interface TableRowProps {
 	placeholderNumber?: number;
 }
 
-interface HourWeatherProps {
+export interface HourWeatherProps {
 	weather: Array<{
 		icon: string;
 		description: string;
