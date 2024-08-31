@@ -1,23 +1,29 @@
+.wa-five-day-forecast {
+	overflow: hidden;
+}
+
 .wa-table {
-	background-color: #fff;
+	background-color: $white;
 	border-radius: 1rem;
 	padding: 1rem;
+	width: 100%;
+	overflow: auto;
 
 	.wa-table-header-wrapper {
 		display: flex;
 		justify-content: space-between;
-	}
-
-	.wa-table-header-wrapper {
-		border-bottom: 2px solid #f6f6f8;
+		border-bottom: 2px solid $gray-light-1;
 		padding: 16px 0 32px;
+		width: max-content;
 	}
 
 	.wa-table-row-wrapper {
 		display: flex;
 		align-items: center;
+		justify-content: space-between;
 		padding: 16px 0;
-		border-bottom: 2px solid #f6f6f8;
+		border-bottom: 2px solid $gray-light-1;
+		width: max-content;
 
 		&:last-child {
 			padding: 16px 0 0;
@@ -28,7 +34,6 @@
 	.wa-table-columns-wrapper {
 		display: flex;
 		justify-content: space-between;
-		width: 100%;
 	}
 
 	.wa-column {
