@@ -52,7 +52,7 @@ function TableRow({
 	const renderPlaceholders =
 		placeholderNumber &&
 		Array.from({ length: placeholderNumber }, () => (
-			<div className="wa-column wa-column-placeholder" />
+			<div className="wa-column wa-column-placeholder">N/A</div>
 		));
 
 	return (

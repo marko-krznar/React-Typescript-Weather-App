@@ -47,6 +47,13 @@
 	.wa-column {
 		width: 80px;
 		text-align: center;
+
+		&.wa-column-placeholder {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: $gray-medium-1;
+		}
 	}
 
 	.wa-placeholder,
