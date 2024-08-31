@@ -70,6 +70,7 @@ function TableRow({
 						<img
 							src={`https://openweathermap.org/img/wn/${hourWeather.weather[0].icon}@4x.png`}
 							alt={hourWeather.weather[0].description}
+							title={hourWeather.weather[0].description}
 						/>
 					</div>
 				))}
