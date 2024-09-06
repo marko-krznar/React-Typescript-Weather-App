@@ -2,3 +2,9 @@
 	height: 2px;
 	background: $gray-light-1;
 }
+
+@media only screen and (max-width: $large-mobile) {
+	.wa-divider {
+		display: none;
+	}
+}

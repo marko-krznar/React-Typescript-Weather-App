@@ -35,7 +35,7 @@
 
 @media only screen and (max-width: $large-tablet) {
 	.wa-app-wrapper .wa-app-container {
-		flex-direction: column-reverse;
+		flex-direction: column;
 	}
 
 	.wa-container.wa-search-container {
@@ -45,11 +45,19 @@
 
 @media only screen and (max-width: $large-mobile) {
 	.wa-container {
-		padding: 32px;
-	}
+		padding: 24px;
 
-	.wa-container.wa-search-container {
-		gap: 32px;
+		&.wa-search-container {
+			gap: 32px;
+		}
+
+		&.wa-highlights-container {
+			display: flex;
+			flex-direction: column-reverse;
+			padding: 0 24px 24px 24px;
+			gap: 24px;
+			background: $white;
+		}
 	}
 }
 

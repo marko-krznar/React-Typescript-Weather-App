@@ -33,3 +33,9 @@
 		}
 	}
 }
+
+@media only screen and (max-width: $large-mobile) {
+	.wa-weather-timeline-wrapper {
+		display: none;
+	}
+}
