@@ -12,7 +12,13 @@
 	}
 }
 
-@media only screen and (max-width: $large-mobile) {
+@media (min-width: 768px) {
+	.wa-current-weather-info {
+		display: none;
+	}
+}
+
+@media (max-width: $large-mobile) {
 	.wa-weather-info {
 		flex-direction: row;
 		flex-wrap: wrap;

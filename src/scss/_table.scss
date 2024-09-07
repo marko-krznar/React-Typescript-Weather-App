@@ -68,7 +68,13 @@
 	}
 }
 
-@media only screen and (max-width: $large-mobile) {
+@media (min-width: 768px) {
+	.wa-table .wa-img-wrapper .wa-text {
+		display: none;
+	}
+}
+
+@media (max-width: $large-mobile) {
 	.wa-five-day-forecast .wa-title,
 	.wa-table .wa-table-header-wrapper {
 		display: none;

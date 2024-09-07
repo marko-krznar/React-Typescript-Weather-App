@@ -56,7 +56,7 @@ function WeatherInfo() {
 			<div className="wa-current-weather-info">
 				<p className="wa-text">
 					<FontAwesomeIcon icon={faTemperatureThreeQuarters} />
-					{weatherData.main.feels_like.toFixed()} °C
+					Feels like {weatherData.main.feels_like.toFixed()} °C
 				</p>
 				<p className="wa-text">
 					<FontAwesomeIcon icon={faCircleUp} />
