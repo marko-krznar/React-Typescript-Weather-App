@@ -1,9 +1,7 @@
 function IntroSection() {
 	return (
 		<div className="wa-intro-section">
-			<h1 className="wa-title">
-				Welcome to the Weather App test project!
-			</h1>
+			<h1 className="wa-title">Weather App test project!</h1>
 			<p className="wa-text">
 				This application utilizes the OpenWeather API to fetch and
 				display real-time weather data for any city.

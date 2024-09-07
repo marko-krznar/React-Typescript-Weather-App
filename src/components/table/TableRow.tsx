@@ -20,6 +20,7 @@ export interface HourWeatherProps {
 		description: string;
 	}>;
 	dt: number;
+	dt_txt: string;
 }
 
 function TableRow({
@@ -72,6 +73,9 @@ function TableRow({
 							alt={hourWeather.weather[0].description}
 							title={hourWeather.weather[0].description}
 						/>
+						<p className="wa-text">
+							{hourWeather.dt_txt.split(" ")[1].slice(0, 5)}
+						</p>
 					</div>
 				))}
 				{!placeholderFrontPosition && renderPlaceholders}

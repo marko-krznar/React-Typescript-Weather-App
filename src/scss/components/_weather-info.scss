@@ -11,3 +11,48 @@
 		gap: 12px;
 	}
 }
+
+@media (min-width: 768px) {
+	.wa-current-weather-info {
+		display: none;
+	}
+}
+
+@media (max-width: $large-mobile) {
+	.wa-weather-info {
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		.wa-location {
+			width: 100%;
+			gap: 4px;
+
+			.fa-location-dot {
+				margin-right: 4px;
+			}
+
+			&::after {
+				content: "- current conditions";
+			}
+		}
+
+		> div:not(.wa-location, .wa-current-weather-info) {
+			width: 80px;
+			overflow: hidden;
+
+			> img {
+				max-width: 100%;
+			}
+		}
+
+		.wa-current-weather-info {
+			flex-grow: 1;
+
+			p.wa-text {
+				display: flex;
+				align-items: center;
+				gap: 8px;
+			}
+		}
+	}
+}
