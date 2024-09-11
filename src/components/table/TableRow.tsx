@@ -58,9 +58,7 @@ function TableRow({
 
 	return (
 		<div key={item.date} className="wa-table-row-wrapper">
-			<div className="wa-column wa-column-today">
-				{formatDate(item.date)}
-			</div>
+			<div className="wa-column">{formatDate(item.date)}</div>
 			<div className="wa-table-columns-wrapper">
 				{placeholderFrontPosition && renderPlaceholders}
 				{item.data.map((hourWeather: HourWeatherProps) => (

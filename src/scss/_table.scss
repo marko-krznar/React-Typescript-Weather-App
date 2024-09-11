@@ -14,7 +14,8 @@
 		justify-content: space-between;
 		border-bottom: 2px solid $gray-light-1;
 		padding: 16px 0 32px;
-		width: max-content;
+		width: 100%;
+		min-width: max-content;
 	}
 
 	.wa-table-row-wrapper {
@@ -23,7 +24,8 @@
 		justify-content: space-between;
 		padding: 16px 0;
 		border-bottom: 2px solid $gray-light-1;
-		width: max-content;
+		width: 100%;
+		min-width: max-content;
 
 		&:last-child {
 			padding: 16px 0 0;
@@ -34,6 +36,16 @@
 	.wa-table-columns-wrapper {
 		display: flex;
 		justify-content: space-between;
+		width: 100%;
+	}
+
+	.wa-table-body-wrapper {
+		width: 100%;
+
+		.wa-table-row-wrapper > .wa-column {
+			text-align: left;
+			padding-left: 16px;
+		}
 	}
 
 	.wa-column {
@@ -49,7 +61,7 @@
 	}
 
 	.wa-placeholder,
-	.wa-column-today {
+	.wa-table-body-wrapper .wa-table-row-wrapper > .wa-column {
 		min-width: 160px;
 	}
 
