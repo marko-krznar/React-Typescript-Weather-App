@@ -5,7 +5,11 @@ Info for handling icons
 - https://fontawesome.com/search?q=close&o=r&m=free
 */
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleUp, faCircleDown } from "@fortawesome/free-solid-svg-icons";
+import {
+	faCircleUp,
+	faCircleDown,
+	faTemperatureThreeQuarters,
+} from "@fortawesome/free-solid-svg-icons";
 import { useSelector } from "react-redux";
 import { RootStore } from "../state/store";
 import { formatTimestampToHours } from "../utils/dateUtils";
@@ -43,6 +47,16 @@ function WeatherTimeline() {
 		<div className="wa-weather-timeline-wrapper">
 			<div className="wa-date-wrapper">
 				{weatherState?.data?.dt && formatToDate(weatherState.data.dt)}
+			</div>
+			<div className="wa-sun-wrapper">
+				<h2 className="heading">
+					<FontAwesomeIcon icon={faTemperatureThreeQuarters} /> Feels
+					like
+				</h2>
+				<p className="wa-value">
+					{weatherState.data?.main.feels_like.toFixed()}
+					<span className="wa-mesure-sign">°C</span>
+				</p>
 			</div>
 			<div className="wa-sun-wrapper">
 				<h2 className="heading">
