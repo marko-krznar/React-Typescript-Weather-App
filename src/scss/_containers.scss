@@ -40,6 +40,34 @@
 
 	.wa-container.wa-search-container {
 		width: 100%;
+		flex-wrap: wrap;
+		flex-direction: row;
+
+		.wa-divider {
+			display: none;
+		}
+
+		.wa-weather-info,
+		.wa-weather-timeline-wrapper {
+			width: calc(50% - 24px);
+		}
+
+		.wa-weather-info {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.wa-weather-info .wa-location {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.wa-weather-timeline-wrapper {
+			background: $gray-light-1;
+			border-radius: 16px;
+			padding: 32px;
+			justify-content: center;
+		}
 	}
 }
 

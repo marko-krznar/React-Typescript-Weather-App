@@ -49,7 +49,17 @@
 	}
 }
 
-@media only screen and (max-width: $large-mobile) {
+@media (max-width: $large-tablet) {
+	.wa-search-form-wrapper {
+		width: 100%;
+
+		.wa-button {
+			min-width: 25%;
+		}
+	}
+}
+
+@media (max-width: $large-mobile) {
 	.wa-search-form-wrapper .wa-input-wrapper input,
 	.wa-search-form-wrapper .wa-button {
 		border-radius: 0;
@@ -60,7 +70,7 @@
 	}
 }
 
-@media only screen and (max-width: $small-mobile) {
+@media (max-width: $small-mobile) {
 	.wa-search-form-wrapper {
 		flex-direction: column;
 		gap: 16px;
