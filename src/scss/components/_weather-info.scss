@@ -30,10 +30,6 @@
 			.fa-location-dot {
 				margin-right: 4px;
 			}
-
-			&::after {
-				content: "- current conditions";
-			}
 		}
 
 		> div:not(.wa-location, .wa-current-weather-info) {

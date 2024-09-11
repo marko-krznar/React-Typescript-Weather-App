@@ -60,28 +60,13 @@
 }
 
 @media (max-width: $large-mobile) {
-	.wa-search-form-wrapper .wa-input-wrapper input,
-	.wa-search-form-wrapper .wa-button {
-		border-radius: 0;
-	}
-
 	.wa-search-form-wrapper .wa-button {
 		padding: 12px 28px;
 	}
 }
 
 @media (max-width: $small-mobile) {
-	.wa-search-form-wrapper {
-		flex-direction: column;
-		gap: 16px;
-
-		.wa-input-wrapper input,
-		.wa-button {
-			border-radius: 1rem;
-		}
-
-		.wa-button {
-			font-size: 16px;
-		}
+	.wa-search-form-wrapper .wa-button {
+		font-size: 16px;
 	}
 }

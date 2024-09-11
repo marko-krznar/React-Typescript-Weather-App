@@ -1,16 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-	faLocationDot,
-	faCircleUp,
-	faCircleDown,
-	faTemperatureThreeQuarters,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore, AppDispatch } from "../state/store";
 import { useEffect } from "react";
 import { fetchWeatherByCity } from "../state/weather/weatherSlice";
 import { fetchFiveDayForecastByCity } from "../state/weather/fiveDayForecastSlice";
-import { formatTimestampToHours } from "../utils/dateUtils";
 
 function WeatherInfo() {
 	const weatherState = useSelector((state: RootStore) => state.weather);
@@ -52,20 +46,6 @@ function WeatherInfo() {
 					<span className="wa-mesure-sign">°C</span>
 				</p>
 				<p>{weatherState?.data?.weather[0].main}</p>
-			</div>
-			<div className="wa-current-weather-info">
-				<p className="wa-text">
-					<FontAwesomeIcon icon={faTemperatureThreeQuarters} />
-					Feels like {weatherData.main.feels_like.toFixed()} °C
-				</p>
-				<p className="wa-text">
-					<FontAwesomeIcon icon={faCircleUp} />
-					{formatTimestampToHours(weatherData.sys.sunrise) + " h"}
-				</p>
-				<p className="wa-text">
-					<FontAwesomeIcon icon={faCircleDown} />
-					{formatTimestampToHours(weatherData.sys.sunset) + " h"}
-				</p>
 			</div>
 		</div>
 	);
