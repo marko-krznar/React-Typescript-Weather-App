@@ -28,11 +28,19 @@ function WeatherInfo() {
 		return <div>No weather data available.</div>;
 	}
 
+	const renderCityName = () => {
+		if (weatherState?.data?.name === "Donji grad") return "Zagreb";
+
+		return weatherState?.data?.name;
+	};
+
 	return (
 		<div className="wa-weather-info">
 			<div className="wa-location">
 				<FontAwesomeIcon icon={faLocationDot} />
-				<span>{`${weatherState?.data?.name}, ${weatherState?.data?.sys.country}`}</span>
+				<span>{`${renderCityName()}, ${
+					weatherState?.data?.sys.country
+				}`}</span>
 			</div>
 			<div className="wa-image-wrapper">
 				<img
