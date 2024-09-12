@@ -27,28 +27,77 @@
 	}
 }
 
-@media only screen and (max-width: $medium-laptop) {
+@media (max-width: $medium-laptop) {
 	.wa-container {
 		padding: 48px 32px;
 	}
 }
 
-@media only screen and (max-width: $large-tablet) {
+@media (max-width: $large-tablet) {
 	.wa-app-wrapper .wa-app-container {
 		flex-direction: column;
 	}
 
 	.wa-container.wa-search-container {
 		width: 100%;
+		flex-wrap: wrap;
+		flex-direction: row;
+		align-items: center;
+
+		.wa-divider {
+			display: none;
+		}
+
+		.wa-weather-info,
+		.wa-weather-timeline-wrapper {
+			width: calc(50% - 24px);
+		}
+
+		.wa-weather-info {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.wa-weather-info .wa-location {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.wa-weather-timeline-wrapper {
+			background: $gray-light-1;
+			border-radius: 16px;
+			padding: 32px;
+			justify-content: center;
+		}
 	}
 }
 
-@media only screen and (max-width: $large-mobile) {
+@media (max-width: $large-mobile) {
 	.wa-container {
 		padding: 24px;
 
 		&.wa-search-container {
-			gap: 32px;
+			gap: 24px;
+
+			.wa-weather-info,
+			.wa-weather-timeline-wrapper {
+				width: calc(50% - 16px);
+			}
+		}
+
+		&.wa-search-container .wa-weather-info {
+			max-width: 40%;
+		}
+
+		&.wa-search-container .wa-weather-timeline-wrapper {
+			padding: 24px;
+			gap: 16px;
+			flex-grow: 1;
+
+			.wa-date-wrapper .wa-title {
+				margin-bottom: 0;
+				font-size: 22px;
+			}
 		}
 
 		&.wa-highlights-container {
@@ -61,12 +110,37 @@
 	}
 }
 
-@media only screen and (max-width: $small-mobile) {
+@media (max-width: $small-mobile) {
 	.wa-container {
 		padding: 24px;
 	}
 
-	.wa-container.wa-search-container {
-		gap: 24px;
+	.wa-container.wa-search-container .wa-weather-timeline-wrapper {
+		background: transparent;
+		padding: 0;
+
+		.wa-date-wrapper .wa-title {
+			font-size: 18px;
+
+			.wa-text {
+				font-size: 18px;
+				color: black;
+			}
+		}
+	}
+}
+
+@media (max-width: $very-small-mobile) {
+	.wa-container {
+		&.wa-search-container .wa-weather-info,
+		&.wa-search-container .wa-weather-timeline-wrapper {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		&.wa-search-container .wa-weather-timeline-wrapper {
+			background: #f6f6f8;
+			padding: 24px;
+		}
 	}
 }

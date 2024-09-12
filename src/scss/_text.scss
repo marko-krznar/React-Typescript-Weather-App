@@ -35,16 +35,22 @@ h2.heading {
 	margin-bottom: 1rem;
 }
 
-@media only screen and (max-width: $large-mobile) {
+@media (max-width: $large-mobile) {
 	.wa-title {
 		font-size: 28px;
 	}
 
 	.wa-value {
-		font-size: 40px;
+		font-size: 34px;
 
 		.wa-mesure-sign {
-			font-size: 18px;
+			font-size: 14px;
 		}
+	}
+}
+
+@media (max-width: $very-small-mobile) {
+	.wa-title {
+		font-size: 24px;
 	}
 }

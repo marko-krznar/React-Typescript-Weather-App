@@ -4,13 +4,13 @@
 	gap: 1rem;
 }
 
-@media only screen and (max-width: $medium-laptop) {
+@media (max-width: $medium-laptop) {
 	.wa-cards-wrapper {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
-@media only screen and (max-width: $large-mobile) {
+@media (max-width: $very-small-mobile) {
 	.wa-cards-wrapper {
 		grid-template-columns: repeat(1, 1fr);
 	}

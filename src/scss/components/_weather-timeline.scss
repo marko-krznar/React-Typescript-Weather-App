@@ -34,8 +34,46 @@
 	}
 }
 
-@media only screen and (max-width: $large-mobile) {
-	.wa-weather-timeline-wrapper {
-		display: none;
+@media (max-width: $large-tablet) {
+	.wa-weather-timeline-wrapper .wa-sun-wrapper {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+
+		.heading {
+			margin-bottom: 0;
+			gap: 0;
+			align-items: unset;
+		}
+
+		.heading::after {
+			content: ":";
+		}
+
+		.svg-inline--fa {
+			height: 16px;
+			margin-right: 8px;
+		}
+
+		.wa-value,
+		.wa-value .wa-mesure-sign {
+			font-size: 16px;
+		}
+
+		.wa-value {
+			gap: 0;
+		}
+	}
+}
+
+@media (max-width: $small-mobile) {
+	.wa-weather-timeline-wrapper .wa-sun-wrapper .wa-value {
+		color: $gray-medium-1;
+	}
+
+	.wa-curreny-content-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 }
