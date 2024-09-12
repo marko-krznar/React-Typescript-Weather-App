@@ -53,6 +53,10 @@
 	.wa-search-form-wrapper {
 		width: 100%;
 
+		.wa-input-wrapper {
+			max-width: 75%;
+		}
+
 		.wa-button {
 			min-width: 25%;
 		}
