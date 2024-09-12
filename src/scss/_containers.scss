@@ -129,3 +129,18 @@
 		}
 	}
 }
+
+@media (max-width: $very-small-mobile) {
+	.wa-container {
+		&.wa-search-container .wa-weather-info,
+		&.wa-search-container .wa-weather-timeline-wrapper {
+			width: 100%;
+			max-width: 100%;
+		}
+
+		&.wa-search-container .wa-weather-timeline-wrapper {
+			background: #f6f6f8;
+			padding: 24px;
+		}
+	}
+}

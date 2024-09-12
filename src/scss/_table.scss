@@ -161,3 +161,16 @@
 		display: none;
 	}
 }
+
+@media (max-width: $very-small-mobile) {
+	.wa-table
+		.wa-table-body-wrapper
+		.wa-table-columns-wrapper
+		.wa-column:nth-of-type(1),
+	.wa-table
+		.wa-table-body-wrapper
+		.wa-table-columns-wrapper
+		.wa-column:nth-of-type(2) {
+		display: flex;
+	}
+}

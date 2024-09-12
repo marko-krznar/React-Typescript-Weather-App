@@ -74,3 +74,19 @@
 		font-size: 16px;
 	}
 }
+
+@media (max-width: $very-small-mobile) {
+	.wa-search-form-wrapper {
+		flex-direction: column;
+		gap: 8px;
+
+		.wa-input-wrapper {
+			max-width: 100%;
+		}
+
+		.wa-input-wrapper input,
+		.wa-button {
+			border-radius: 16px;
+		}
+	}
+}
