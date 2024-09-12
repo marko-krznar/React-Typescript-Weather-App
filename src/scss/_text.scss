@@ -35,6 +35,19 @@ h2.heading {
 	margin-bottom: 1rem;
 }
 
+.wp-chip {
+	background: $blue-medium-1;
+	width: fit-content;
+	padding: 4px 8px;
+	border-radius: 12px;
+	margin-top: 12px;
+
+	.wa-rain-text {
+		color: $white;
+		font-size: 12px;
+	}
+}
+
 @media (max-width: $large-mobile) {
 	.wa-title {
 		font-size: 28px;

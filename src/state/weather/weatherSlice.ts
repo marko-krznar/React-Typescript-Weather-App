@@ -28,6 +28,10 @@ export interface WeatherData {
 		deg: number;
 		gust?: number;
 	};
+	rain?: {
+		"1h"?: number;
+		"3h"?: number;
+	};
 	clouds: {
 		all: number;
 	};
