@@ -24,13 +24,13 @@ function WeatherHighlights() {
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowUp} />,
 			itemName: "Max Temperature",
-			value: weatherState?.data?.main.temp_max,
+			value: weatherState?.data?.main.temp_max.toFixed(),
 			measureUnit: "°C",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowDown} />,
 			itemName: "Min Temperature",
-			value: weatherState?.data?.main.temp_min,
+			value: weatherState?.data?.main.temp_min.toFixed(),
 			measureUnit: "°C",
 		},
 		{
