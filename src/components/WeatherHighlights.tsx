@@ -19,7 +19,7 @@ function WeatherHighlights() {
 			iconName: <FontAwesomeIcon icon={faWind} />,
 			itemName: "Wind",
 			value: weatherState?.data?.wind.speed,
-			measureUnit: "km/h",
+			measureUnit: "m/s",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowUp} />,
