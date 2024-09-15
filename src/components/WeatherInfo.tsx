@@ -34,12 +34,6 @@ function WeatherInfo() {
 		return weatherState?.data?.name;
 	};
 
-	const renderWeatherDescription = () => {
-		if (weatherState?.data?.weather[0].main !== "Rain") return;
-
-		return weatherState?.data?.rain && weatherState?.data?.rain["1h"];
-	};
-
 	return (
 		<div className="wa-weather-info">
 			<div className="wa-location">
@@ -60,11 +54,14 @@ function WeatherInfo() {
 					<span className="wa-mesure-sign">°C</span>
 				</p>
 				<p>{weatherState?.data?.weather[0].main}</p>
-				<div className="wp-chip">
-					<span className="wa-rain-text">
-						{renderWeatherDescription() + " mm/h"}
-					</span>
-				</div>
+				{weatherState?.data?.rain && (
+					<div className="wp-chip">
+						<span className="wa-rain-text">
+							{weatherState?.data?.rain &&
+								weatherState?.data?.rain["1h"] + " mm/h"}
+						</span>
+					</div>
+				)}
 			</div>
 		</div>
 	);
