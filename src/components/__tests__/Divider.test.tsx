@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Divider from "./Divider";
+import Divider from "../Divider";
 
 describe("Divider component", () => {
 	test("renders the divider with the correct class", () => {
