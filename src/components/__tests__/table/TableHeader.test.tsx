@@ -22,7 +22,7 @@ describe("TableHeader", () => {
 
 	it("renders the placeholder div", () => {
 		render(<TableHeader />);
-		// const placeholder = screen.getByClassName("wa-placeholder");
-		// expect(placeholder).toBeInTheDocument();
+		const placeholder = document.querySelector(".wa-placeholder");
+		expect(placeholder).toBeInTheDocument();
 	});
 });
