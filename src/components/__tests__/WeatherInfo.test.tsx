@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import WeatherInfo from "../WeatherInfo";
 import { useDispatch, useSelector } from "react-redux";
-// import { fetchWeatherByCity } from "../../state/weather/weatherSlice";
-// import { fetchFiveDayForecastByCity } from "../../state/weather/fiveDayForecastSlice";
+import { fetchWeatherByCity } from "../../state/weather/weatherSlice";
+import { fetchFiveDayForecastByCity } from "../../state/weather/fiveDayForecastSlice";
 
 // Mocking FontAwesomeIcon to avoid rendering complexity
 jest.mock("@fortawesome/react-fontawesome", () => ({
@@ -17,6 +17,9 @@ jest.mock("react-redux", () => ({
 
 jest.mock("../../state/weather/weatherSlice", () => ({
 	fetchWeatherByCity: jest.fn(),
+}));
+
+jest.mock("../../state/weather/fiveDayForecastSlice", () => ({
 	fetchFiveDayForecastByCity: jest.fn(),
 }));
 
@@ -82,15 +85,15 @@ describe("WeatherInfo Component", () => {
 		expect(screen.getByText("2 mm/h")).toBeInTheDocument();
 	});
 
-	// it("dispatches fetchWeatherByCity and fetchFiveDayForecastByCity on mount", () => {
-	// 	(useSelector as unknown as jest.Mock).mockReturnValue({
-	// 		status: "succeeded",
-	// 		data: null,
-	// 	});
-	// 	render(<WeatherInfo />);
-	// 	expect(dispatchMock).toHaveBeenCalledWith(fetchWeatherByCity("Zagreb"));
-	// 	expect(dispatchMock).toHaveBeenCalledWith(
-	// 		fetchFiveDayForecastByCity("Zagreb")
-	// 	);
-	// });
+	it("dispatches fetchWeatherByCity and fetchFiveDayForecastByCity on mount", () => {
+		(useSelector as unknown as jest.Mock).mockReturnValue({
+			status: "succeeded",
+			data: null,
+		});
+		render(<WeatherInfo />);
+		expect(dispatchMock).toHaveBeenCalledWith(fetchWeatherByCity("Zagreb"));
+		expect(dispatchMock).toHaveBeenCalledWith(
+			fetchFiveDayForecastByCity("Zagreb")
+		);
+	});
 });
