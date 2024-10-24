@@ -36,10 +36,23 @@ describe("WeatherTimeline Component", () => {
 		} as RootStore["weather"]);
 	});
 
-	// it("displays the date correctly based on the Unix timestamp", () => {
-	// 	render(<WeatherTimeline />);
-	// 	expect(screen.getByText(/Sunday, 01.10./)).toBeInTheDocument();
-	// });
+	it("displays the date correctly based on the Unix timestamp", () => {
+		render(<WeatherTimeline />);
+		const dateText = (
+			content: string,
+			element: Element | null
+		): boolean => {
+			const waTextElement = element?.querySelector(
+				".wa-text"
+			) as HTMLElement | null;
+
+			return (
+				content.includes("Thursday") &&
+				waTextElement?.textContent === "30.09."
+			);
+		};
+		expect(screen.getByText(dateText)).toBeInTheDocument();
+	});
 
 	it("displays the 'feels like' temperature", () => {
 		render(<WeatherTimeline />);
