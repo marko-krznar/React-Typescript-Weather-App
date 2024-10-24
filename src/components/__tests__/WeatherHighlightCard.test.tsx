@@ -29,22 +29,4 @@ describe("WeatherHighlightCard Component", () => {
 		const measureElement = screen.getByText("°C");
 		expect(measureElement).toBeInTheDocument();
 	});
-
-	// it("should render 'undefined' for value if no value is passed", () => {
-	// 	const mockIcon = <span>🌞</span>;
-	// 	const mockItem = "Humidity";
-	// 	const mockMesure = "%";
-
-	// 	render(
-	// 		<WeatherHighlightCard
-	// 			icon={mockIcon}
-	// 			item={mockItem}
-	// 			value={undefined}
-	// 			mesure={mockMesure}
-	// 		/>
-	// 	);
-
-	// 	const valueElement = screen.getByText("undefined");
-	// 	expect(valueElement).toBeInTheDocument();
-	// });
 });
