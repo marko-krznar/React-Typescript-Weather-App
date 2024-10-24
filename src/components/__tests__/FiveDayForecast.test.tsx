@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { useDispatch, useSelector } from "react-redux";
 import FiveDayForecast from "../FiveDayForecast";
-// import { fetchFiveDayForecastByCity } from "../../state/weather/fiveDayForecastSlice";
+import { fetchFiveDayForecastByCity } from "../../state/weather/fiveDayForecastSlice";
 
-// Mock child components
+// Mock action creators
 jest.mock("../table/TableHeader", () => () => <div>TableHeader</div>);
 jest.mock("../table/TableBody", () =>
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,6 +11,9 @@ jest.mock("../table/TableBody", () =>
 		<div>TableBody - {groupedDataByDate?.length} days</div>
 	)
 );
+jest.mock("../../state/weather/fiveDayForecastSlice", () => ({
+	fetchFiveDayForecastByCity: jest.fn(),
+}));
 
 // Mock useDispatch and useSelector
 jest.mock("react-redux", () => ({
@@ -44,10 +47,10 @@ describe("FiveDayForecast Component", () => {
 		expect(screen.getByText("TableBody - 2 days")).toBeInTheDocument(); // Expect 2 unique dates
 	});
 
-	// it("should dispatch fetchFiveDayForecastByCity on mount", () => {
-	// 	render(<FiveDayForecast />);
-	// 	expect(mockDispatch).toHaveBeenCalledWith(
-	// 		fetchFiveDayForecastByCity("Zagreb")
-	// 	);
-	// });
+	it("should dispatch fetchFiveDayForecastByCity on mount", () => {
+		render(<FiveDayForecast />);
+		expect(mockDispatch).toHaveBeenCalledWith(
+			fetchFiveDayForecastByCity("Zagreb")
+		);
+	});
 });
