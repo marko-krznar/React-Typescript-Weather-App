@@ -14,41 +14,41 @@ import WeatherHighlightCard from "./WeatherHighlightCard";
 
 function WeatherHighlights() {
 	const weatherState = useSelector((state: RootStore) => state.weather);
-	const weatherArray = [
+	const weatherArray = weatherState.data && [
 		{
 			iconName: <FontAwesomeIcon icon={faWind} />,
 			itemName: "Wind",
-			value: weatherState?.data?.wind.speed,
+			value: weatherState.data.wind.speed,
 			measureUnit: "m/s",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowUp} />,
 			itemName: "Max Temperature",
-			value: weatherState?.data?.main.temp_max.toFixed(),
+			value: weatherState.data.main.temp_max.toFixed(),
 			measureUnit: "°C",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faTemperatureArrowDown} />,
 			itemName: "Min Temperature",
-			value: weatherState?.data?.main.temp_min.toFixed(),
+			value: weatherState.data.main.temp_min.toFixed(),
 			measureUnit: "°C",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faDroplet} />,
 			itemName: "Humidity",
-			value: weatherState?.data?.main.humidity,
+			value: weatherState.data.main.humidity,
 			measureUnit: "%",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faEye} />,
 			itemName: "Visibility",
-			value: weatherState?.data?.visibility,
+			value: weatherState.data.visibility,
 			measureUnit: "km",
 		},
 		{
 			iconName: <FontAwesomeIcon icon={faCloud} />,
 			itemName: "Pressure",
-			value: weatherState?.data?.main.pressure,
+			value: weatherState.data.main.pressure,
 			measureUnit: "hpa",
 		},
 	];
@@ -57,15 +57,16 @@ function WeatherHighlights() {
 		<div className="wa-cards">
 			<span className="wa-title">Today's Highlights</span>
 			<div className="wa-cards-wrapper">
-				{weatherArray.map((weatherItem) => (
-					<WeatherHighlightCard
-						key={weatherItem.itemName}
-						icon={weatherItem.iconName}
-						item={weatherItem.itemName}
-						value={weatherItem.value}
-						mesure={weatherItem.measureUnit}
-					/>
-				))}
+				{weatherArray &&
+					weatherArray.map((weatherItem) => (
+						<WeatherHighlightCard
+							key={weatherItem.itemName}
+							icon={weatherItem.iconName}
+							item={weatherItem.itemName}
+							value={weatherItem.value}
+							mesure={weatherItem.measureUnit}
+						/>
+					))}
 			</div>
 		</div>
 	);
