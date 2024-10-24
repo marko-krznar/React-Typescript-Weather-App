@@ -4,7 +4,7 @@
 <div className="wa-column">1m/s</div>
 */
 
-export interface TableRowProps {
+interface TableRowProps {
 	item: {
 		date: string;
 		data: Array<HourWeatherProps>;

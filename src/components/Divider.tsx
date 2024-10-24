@@ -1,5 +1,5 @@
 function Divider() {
-	return <div className="wa-divider" role="separator" />;
+	return <div className="wa-divider" />;
 }
 
 export default Divider;
