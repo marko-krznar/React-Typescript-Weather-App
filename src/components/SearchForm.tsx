@@ -35,7 +35,7 @@ function SearchForm() {
 					value={searchTerm}
 					onChange={handleSearchTerm}
 				/>
-				<button onClick={handleClearSearchTerm}>
+				<button aria-label="xmark" onClick={handleClearSearchTerm}>
 					<FontAwesomeIcon icon={faXmark} />
 				</button>
 			</div>

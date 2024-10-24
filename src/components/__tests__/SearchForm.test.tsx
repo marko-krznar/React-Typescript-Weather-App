@@ -37,15 +37,15 @@ describe("SearchForm Component", () => {
 		expect(inputElement).toHaveValue("Zagreb");
 	});
 
-	// it("should clear search input when the clear button is clicked", () => {
-	// 	render(<SearchForm />);
-	// 	const inputElement = screen.getByPlaceholderText("Search for place...");
-	// 	const clearButton = screen.getByRole("button", { name: /xmark/i });
-	// 	fireEvent.change(inputElement, { target: { value: "Zagreb" } });
-	// 	expect(inputElement).toHaveValue("Zagreb");
-	// 	fireEvent.click(clearButton);
-	// 	expect(inputElement).toHaveValue("");
-	// });
+	it("should clear search input when the clear button is clicked", () => {
+		render(<SearchForm />);
+		const inputElement = screen.getByPlaceholderText("Search for place...");
+		const clearButton = screen.getByRole("button", { name: /xmark/i });
+		fireEvent.change(inputElement, { target: { value: "Zagreb" } });
+		expect(inputElement).toHaveValue("Zagreb");
+		fireEvent.click(clearButton);
+		expect(inputElement).toHaveValue("");
+	});
 
 	it("should dispatch actions when the search button is clicked", () => {
 		render(<SearchForm />);
