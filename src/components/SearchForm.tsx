@@ -32,21 +32,23 @@ function SearchForm() {
 
 	return (
 		<div className="wa-search-form-wrapper">
-			<form onSubmit={handleSearch} className="wa-input-wrapper">
-				<input
-					type="text"
-					placeholder="Search for place..."
-					value={searchTerm}
-					onChange={handleSearchTerm}
-				/>
-				<button
-					aria-label="xmark"
-					type="button"
-					onClick={handleClearSearchTerm}
-					className="wa-close-button"
-				>
-					<FontAwesomeIcon icon={faXmark} />
-				</button>
+			<form onSubmit={handleSearch} className="wa-form-wrapper">
+				<div className="wa-input-wrapper">
+					<input
+						type="text"
+						placeholder="Search for place..."
+						value={searchTerm}
+						onChange={handleSearchTerm}
+					/>
+					<button
+						aria-label="xmark"
+						type="button"
+						onClick={handleClearSearchTerm}
+						className="wa-close-button"
+					>
+						<FontAwesomeIcon icon={faXmark} />
+					</button>
+				</div>
 				<button type="submit" className="wa-button">
 					Find
 				</button>
