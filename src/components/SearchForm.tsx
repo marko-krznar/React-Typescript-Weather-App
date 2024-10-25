@@ -40,6 +40,7 @@ function SearchForm() {
 					onChange={handleSearchTerm}
 				/>
 				<button
+					aria-label="xmark"
 					type="button"
 					onClick={handleClearSearchTerm}
 					className="wa-close-button"

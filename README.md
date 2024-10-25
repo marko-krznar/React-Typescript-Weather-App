@@ -1,6 +1,6 @@
 # Current weather
 
-This project was initialized with [Vite](https://vitejs.dev/).
+This project was initialized with <a href="https://vite.dev/" target="_blank" rel="noopener noreferrer">Vite</a>.
 
 ## Features
 
@@ -9,13 +9,16 @@ This project was initialized with [Vite](https://vitejs.dev/).
 
 ## Technologies
 
--   [React](https://react.dev/)
--   [Typescript](https://www.typescriptlang.org/)
+-   <a href="https://react.dev/" target="_blank" rel="noopener noreferrer">React</a>
+-   <a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">Typescript</a>
 
 ## Details
 
 -   Using [OpenWeather API](https://openweathermap.org/api) to get the current weather
 -   Using [React Redux](https://react-redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) for managing state
+-   Using [Jest](https://jestjs.io/) and React [Testing Library](https://testing-library.com/) to write and run unit tests
+
+
 
 :point_right: [Check out the app](https://marko-krznar.github.io/React-Typescript-Weather-App/)
 
