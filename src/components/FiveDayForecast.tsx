@@ -1,8 +1,5 @@
-import { useEffect } from "react";
-
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootStore } from "../state/store";
-import { fetchFiveDayForecastByCity } from "../state/weather/fiveDayForecastSlice";
+import { useSelector } from "react-redux";
+import { RootStore } from "../state/store";
 
 import TableHeader from "./table/TableHeader";
 import TableBody from "./table/TableBody";
@@ -12,14 +9,9 @@ interface WeatherDataItemProps {
 }
 
 function FiveDayForecast() {
-	const dispatch = useDispatch<AppDispatch>();
 	const fiveDayForecastState = useSelector(
 		(state: RootStore) => state.fiveDayForecast
 	);
-
-	useEffect(() => {
-		dispatch(fetchFiveDayForecastByCity("Zagreb"));
-	}, [dispatch]);
 
 	const weatherData = fiveDayForecastState.data?.list;
 
