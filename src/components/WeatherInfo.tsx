@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { RootStore, AppDispatch } from "../state/store";
 import { useEffect } from "react";
@@ -21,7 +21,19 @@ function WeatherInfo() {
 	}
 
 	if (weatherState.status === "failed") {
-		return <div>Error: {weatherState.error}</div>;
+		return (
+			<div className="wa-alert wa-alert-error">
+				<div className="wa-alert-icon-wrapper">
+					<FontAwesomeIcon icon={faXmark} />
+				</div>
+				<div className="wa-alert-content">
+					<span className="wa-alert-title">Error</span>
+					<span className="wa-alert-description">
+						{weatherState.error}
+					</span>
+				</div>
+			</div>
+		);
 	}
 
 	if (!weatherData) {

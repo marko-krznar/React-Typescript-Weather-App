@@ -1,0 +1,35 @@
+.wa-alert {
+	width: 100%;
+	padding: 16px;
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	background: $gray-light-1;
+	border-left: 4px solid $red-medium-1;
+
+	.wa-alert-content {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.wa-alert-icon-wrapper {
+		background: $red-medium-1;
+		width: 32px;
+		height: 32px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+	}
+
+	.wa-alert-icon-wrapper .svg-inline--fa.fa-xmark {
+		height: 24px;
+		color: $white;
+	}
+
+	.wa-alert-title {
+		font-size: 24px;
+		font-weight: 700;
+	}
+}
