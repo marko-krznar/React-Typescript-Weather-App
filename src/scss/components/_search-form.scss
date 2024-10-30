@@ -1,61 +1,60 @@
 .wa-search-form-wrapper {
-	display: flex;
+	max-width: 100%;
+	overflow: hidden;
 
-	.wa-input-wrapper {
+	.wa-form-wrapper {
 		display: flex;
 		align-items: center;
-		position: relative;
-		flex-grow: 1;
+
+		.wa-input-wrapper {
+			width: 100%;
+			display: flex;
+			position: relative;
+		}
 
 		input {
-			font-size: 1rem;
+			font-size: 16px;
 			color: $gray-medium-1;
-			padding: 12px 2.5rem 12px 2.5rem;
-			flex-grow: 1;
+			padding: 12px 40px 12px 20px;
 			background-color: $gray-light-1;
-			border-color: $gray-light-1;
-			border-style: solid;
-			border-radius: 1rem 0 0 1rem;
+			border: 1px solid $gray-light-1;
+			border-radius: 16px 0 0 16px;
+			flex-grow: 1;
 		}
 
-		> .svg-inline--fa,
-		> button {
-			position: absolute;
-		}
-
-		> .svg-inline--fa {
-			left: 1rem;
+		.svg-inline--fa {
 			color: $gray-medium-1;
 		}
 
-		> button {
-			right: 0;
+		.wa-close-button {
+			position: absolute;
+			right: calc(20px - 6px);
 			height: 100%;
-			font-size: 1rem;
+			font-size: 16px;
 			background: transparent;
 			border: transparent;
-			padding: 0 1rem;
+			padding: 0;
 			color: $gray-medium-1;
+
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 
 	.wa-button {
-		padding: 12px 1rem;
+		padding: 12px 24px;
 		background-color: $gray-medium-1;
-		border-color: $gray-medium-1;
 		color: $white;
-		border-style: solid;
-		border-radius: 0 1rem 1rem 0;
+		border: 1px solid $gray-medium-1;
+		border-radius: 0 16px 16px 0;
+		line-height: 18px;
 	}
 }
 
 @media (max-width: $large-tablet) {
 	.wa-search-form-wrapper {
 		width: 100%;
-
-		.wa-input-wrapper {
-			max-width: 75%;
-		}
 
 		.wa-button {
 			min-width: 25%;
@@ -76,17 +75,14 @@
 }
 
 @media (max-width: $very-small-mobile) {
-	.wa-search-form-wrapper {
+	.wa-form-wrapper {
 		flex-direction: column;
-		gap: 8px;
+		gap: 4px;
+	}
 
-		.wa-input-wrapper {
-			max-width: 100%;
-		}
-
-		.wa-input-wrapper input,
-		.wa-button {
-			border-radius: 16px;
-		}
+	.wa-search-form-wrapper .wa-form-wrapper input,
+	.wa-search-form-wrapper .wa-button {
+		border-radius: 16px;
+		width: 100%;
 	}
 }

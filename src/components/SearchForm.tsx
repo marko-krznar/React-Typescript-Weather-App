@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../state/store";
@@ -16,32 +16,43 @@ function SearchForm() {
 		setSearchTerm(event.target.value);
 	};
 
-	const handleClearSearchTerm = () => {
+	const handleClearSearchTerm = (
+		event: React.MouseEvent<HTMLButtonElement>
+	) => {
+		event.preventDefault();
 		setSearchTerm("");
 	};
 
-	const handleSearch = () => {
+	const handleSearch = (event: React.FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
 		dispatch(fetchWeatherByCity(searchTerm));
 		dispatch(fetchFiveDayForecastByCity(searchTerm));
+		setSearchTerm("");
 	};
 
 	return (
 		<div className="wa-search-form-wrapper">
-			<div className="wa-input-wrapper">
-				<FontAwesomeIcon icon={faMagnifyingGlass} />
-				<input
-					type="text"
-					placeholder="Search for place..."
-					value={searchTerm}
-					onChange={handleSearchTerm}
-				/>
-				<button aria-label="xmark" onClick={handleClearSearchTerm}>
-					<FontAwesomeIcon icon={faXmark} />
+			<form onSubmit={handleSearch} className="wa-form-wrapper">
+				<div className="wa-input-wrapper">
+					<input
+						type="text"
+						placeholder="Search for place..."
+						value={searchTerm}
+						onChange={handleSearchTerm}
+					/>
+					<button
+						aria-label="xmark"
+						type="button"
+						onClick={handleClearSearchTerm}
+						className="wa-close-button"
+					>
+						<FontAwesomeIcon icon={faXmark} />
+					</button>
+				</div>
+				<button type="submit" className="wa-button">
+					Find
 				</button>
-			</div>
-			<button className="wa-button" onClick={handleSearch}>
-				Find
-			</button>
+			</form>
 		</div>
 	);
 }
